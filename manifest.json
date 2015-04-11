@@ -1,0 +1,18 @@
+{
+  "manifest_version" : 2,
+
+  "name" : "Magento Debugger",
+  "description" : "This extension allows you debug magento store with pleasure.",
+  "version" : "1.0",
+  
+  "browser_action" : {
+    "default_icon"  : "images/icon.png",
+    "default_popup" : "popup.html"
+  },
+  "permissions" : [
+    "activeTab", "cookies",
+    "activeTab", "webRequest",
+    "https://ajax.googleapis.com/*",
+    "*://*/*"
+  ]
+}

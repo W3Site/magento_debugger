@@ -1,0 +1,63 @@
+body{
+  width: 350px;
+}
+
+h1{
+  font-size: 15px;
+  line-height: 22px;
+}
+
+a{
+  color: #f13b28;
+  font-weight: bold;
+}
+
+hr{
+  border-color: #f13b28;
+  border-style: dashed;
+}
+
+/***** header *****/
+.header{
+  border-bottom: 2px dotted #f13b28 ;
+}
+
+.header .icon{
+  float: left;
+  padding-right: 6px;
+  width:20px;
+}
+
+.header .w3site{
+  float:right;
+  padding: 5px 0px 0px 0px;
+}
+
+/****** footer *****/
+.footer{
+  border-top: 2px dotted #f13b28 ;
+  font-size:10px;
+  padding-top: 10px;
+  text-align: right;
+}
+
+/****** body *****/
+.body{
+  padding: 10px 0px 10px 0px;
+}
+
+.line-option{
+}
+
+.checkbox-option{
+  float: left;
+  margin: 0px 5px 0px 0px;
+}
+
+.line-buttons{
+  margin-top: 10px;
+}
+
+.debug_install, .debug_form{
+  display:none;
+}

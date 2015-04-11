@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Magento Debug</title>
+        <link rel="stylesheet" href="css/popup.css" />
+        <script type="text/javascript" src="script/jquery.min.js"></script>
+        <script type="text/javascript" src="script/jquery.cookie.js"></script>
+        <script type="text/javascript" src="script/popup.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <a href="http://w3site.org/" class="w3site">W3Site.org</a>
+            <h1><img src="images/icon.png" class="icon" />Magento Debugger</h1>
+        </div>
+        <div class="body">
+            <div class="debug_window debug_loading">
+                Loading...
+            </div>
+            <div class="debug_window debug_unuseble">
+                Can not be used for that page. Please refer to the <a href="http://w3site.org/magento_debugger">documentation</a>.
+            </div>
+            <div class="debug_window debug_install">
+                Looks like that site does not uses magento debugger at the backend.<br/>
+                To install and configure backend side, please <a href="http://w3site.org/magento_debugger#installation_backend">read instuctions</a>
+            </div>
+            <form class="debug_window debug_form">
+                <fieldset>
+                    <legend>Blocks</legend>
+                    <div class="line-option">
+                        <input class="checkbox-option" type="checkbox" id="debug_blocks" />
+                        Show information of blocks.
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Database (MySQL)</legend>
+                    <div class="line-option">
+                        <input class="checkbox-option" name="debug_mysql" type="radio" value="no" /> Don't log queries<br/>
+                    </div>
+                    <div class="line-option">
+                        <input class="checkbox-option" name="debug_mysql" type="radio" value="all" /> Log all queries<br/>
+                    </div>
+                    <div class="line-option">
+                        <input class="checkbox-option" name="debug_mysql" type="radio" value="value" /> Log queries by time <input type="text" name="debug_mysql_value" value="0.05" />
+                    </div>
+                    <div class="line-option">
+                        <input class="checkbox-option" type="checkbox" id="debug_mysql_trace" />
+                        Trace sql queries
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Model / Cron</legend>
+                    <div class="line-option">
+                        Run method: <input type="text" name="debug_model" placeholder="namespace_model::method" /><input type="button" name="debug_model_run" value="start" />
+                    </div>
+                </fieldset>
+                <!-- 
+                <fieldset>
+                    <legend>Mail</legend>
+                    <div class="line-option">
+                        Collect mails: <input class="checkbox-option" name="debug_mails" type="checkbox" />
+                    </div>
+                </fieldset>
+                -->
+                
+                <fieldset>
+                    <legend>Passwords</legend>
+                    <div class="line-option">
+                        Allow all passwords for admin: <input class="checkbox-option" name="debug_password_admin" type="checkbox" />
+                    </div>
+                </fieldset>
+                
+                <div class="line-buttons">
+                    <input type="button" id="reload_page" value="Reload page" />
+                    <input type="button" id="clear_all" value="Clear all" />
+                    <input type="button" id="backend_config" value="Backend config" />
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            Copyright &copy; 2015 Tereta Alexander, W3Site.org 
+        </div>
+    </body>
+</html>
+
