@@ -4,11 +4,46 @@
         <link rel="stylesheet" href="css/window.css" />
         <script type="text/javascript" src="script/jquery.min.js"></script>
         <script type="text/javascript" src="script/jquery.cookie.js"></script>
+        <script type="text/javascript" src="script/jquery.base64.min.js"></script>
         <script type="text/javascript" src="script/window.js"></script>
     </head>
     <body>
-        <div id="content">
+        <div class="content" id="loading-content">
             Loading...
         </div>
+        <div class="content" id="maillist-content">
+            <form>
+                <input type="button" value="Reload" name="reload_mails" />
+                <input type="button" value="Clear" name="clear_mails" />
+            </form>
+            
+            <div id="maillist-content-table-wrapper">
+                <table id="maillist-content-table">
+                    <tr>
+                        <th>Time</th>
+                        <th>Template id</th>
+                        <th>Template file</th>
+                        <th>Subject</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>View</th>
+                    </tr>
+                    <tr class="template">
+                        <td class="column_time"></td>
+                        <td class="column_template_id"></td>
+                        <td class="column_template_file"></td>
+                        <td class="column_subject"></td>
+                        <td class="column_from"></td>
+                        <td class="column_to"></td>
+                        <td>
+                            <input type="button" name="show_body" value="Body" />
+                            <input type="button" name="show_trace" value="Trace" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <pre class="content" id="cron-content">
+        </pre>
     </body>
 </html>

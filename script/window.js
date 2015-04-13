@@ -5,32 +5,43 @@
 
 mainWindow = function(){
     var _this = this;
-    var _data = {
-        tab : {},
-        cookies : {}
-    };
+    var _data = {};
+    
+    this.getData = function(){
+        return _data;
+    }
     
     this.init = function(){
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange=function(){
-            if (xmlHttp.readyState==4 && xmlHttp.status==200){
-            }
+        var searchLine = window.location.search;
+        var searchValuesStrings = searchLine.substring(1).split("&");
+        var searchValues = new Object();
+        for (hf = 0; hf < searchValuesStrings.length; hf++){
+            searchValueSplit = searchValuesStrings[hf].split('=');
+            searchValues[searchValueSplit[0]] = searchValueSplit[1];
         }
         
-        xmlHttp.onprogress=function(){
-            document.getElementById("content").innerText=xmlHttp.responseText;
-        }
+        _data.queryValues = searchValues;
+        var jsonDataString = jQuery.base64.decode(location.hash.substring(1));
+        _data.extension = jQuery.parseJSON(jsonDataString);
         
-        var hash = window.location.hash.substring(1);
-        var hashValuesStrings = hash.split("&");
-        var hashValues = new Object();
-        for (hf = 0; hf < hashValuesStrings.length; hf++){
-            hashValueSplit = hashValuesStrings[hf].split('=');
-            hashValues[hashValueSplit[0]] = hashValueSplit[1];
+        switch (searchValues['magento_debug']){
+            case('model'):
+                jQuery.getScript(window.location.origin + '/script/window/cron.js').done(function(){
+                    jQuery('.content').hide();
+                    jQuery('#cron-content').show();
+                    var mainWindowCronObject = new mainWindowCron;
+                    mainWindowCronObject.init(_this);
+                });
+                break;
+            case('maillist'):
+                jQuery.getScript(window.location.origin + '/script/window/mail.js').done(function(){
+                    jQuery('.content').hide();
+                    jQuery('#maillist-content').show();
+                    var mainWindowMailObject = new mainWindowMail;
+                    mainWindowMailObject.mailListInit(_this);
+                });
+                break;
         }
-        
-        xmlHttp.open("GET", hashValues.host + window.location.search,true);
-        xmlHttp.send();
     }
 }
 

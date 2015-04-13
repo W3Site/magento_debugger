@@ -9,6 +9,10 @@ popupWindow = function(){
         cookies : {}
     };
     
+    this.getData = function(){
+        return _data;
+    }
+    
     this.getRootPath = function(url){
         var match = url.match(/.*:\/\/[^\/]*/i);
         if (!match){
@@ -19,6 +23,33 @@ popupWindow = function(){
     }
     
     this.initOptions = function(){
+        // Links
+        jQuery('a').each(function(key, item){
+            jQuery(item).on('click', function(){
+                var linkType = jQuery(this).attr('linktype');
+                var extensionWindow  = jQuery(this).attr('extensionwindow');
+                var link = jQuery(this).attr('href');
+                if (extensionWindow){
+                    var params = {
+                        'host':_this.getRootPath(_data.tab.url)
+                    };
+                    
+                    var jsonString = jQuery.stringify(params);
+                    link = link + '#' + jQuery.base64.encode(jsonString);
+                }
+                
+                if (linkType == 'popup'){
+                    chrome.windows.create({
+                        'url': link,
+                        'type': 'popup'
+                    });
+                }
+                else{
+                    chrome.tabs.create({'url': link});
+                }
+            });
+        });
+        
         // Reload page
         jQuery('#reload_page').on('click', function(){
             chrome.tabs.reload(_data.tab.id);
@@ -68,6 +99,20 @@ popupWindow = function(){
             }
             else{
                 chrome.cookies.set({url: _this.getRootPath(_data.tab.url), name: 'magento_debug_blocks', path: '/', value: 'no'});
+            }
+        });
+        
+        // Debug mails
+        if (_data.cookies.magento_debug_mails == 'yes'){
+            jQuery('input[name=debug_mails]').prop('checked', true);
+        }
+        
+        jQuery('input[name=debug_mails]').on('change', function(){
+            if (jQuery('input[name=debug_mails]').is(':checked')){
+                chrome.cookies.set({url: _this.getRootPath(_data.tab.url), name: 'magento_debug_mails', path: '/', value: 'yes'});
+            }
+            else{
+                chrome.cookies.set({url: _this.getRootPath(_data.tab.url), name: 'magento_debug_mails', path: '/', value: 'no'});
             }
         });
         
@@ -125,8 +170,15 @@ popupWindow = function(){
             var value = jQuery('input[name=debug_model]').val();
             var host = _this.getRootPath(_data.tab.url);
             
+            var params = {
+                'host':_this.getRootPath(_data.tab.url)
+            };
+            
+            var jsonString = jQuery.stringify(params);
+            var link = 'window.html?magento_debug=model&magento_debug_model_method=' + value + '#' + jQuery.base64.encode(jsonString);
+
             chrome.windows.create({
-                url: chrome.extension.getURL('window.html?magento_debug=model&magento_debug_model_method=' + value + '#host=' + host),
+                url: chrome.extension.getURL(link),
                 type: 'popup'
             });
         });
@@ -148,13 +200,6 @@ popupWindow = function(){
     }
     
     this.init = function(){
-        // Links
-        jQuery('a').each(function(key, item){
-            jQuery(item).on('click', function(){
-                chrome.tabs.create({url: jQuery(this).attr('href')});
-            });
-        });
-        
         // Data retreiving and options set
         chrome.tabs.getSelected(null, function(tab) {
             _data.tab = tab;

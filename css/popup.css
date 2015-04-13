@@ -17,6 +17,11 @@ hr{
   border-style: dashed;
 }
 
+.clearfix:after{
+  content: "";
+  clear:both;
+}
+
 /***** header *****/
 .header{
   border-bottom: 2px dotted #f13b28 ;
@@ -58,6 +63,16 @@ hr{
   margin-top: 10px;
 }
 
-.debug_install, .debug_form{
+.debug_window{
   display:none;
+}
+
+.debug_loading{
+  display:block;
+  line-height: 32px;
+}
+
+.debug_loading img{
+    float: left;
+    margin: 0px 10px;
 }
