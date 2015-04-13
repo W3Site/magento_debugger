@@ -8,18 +8,23 @@
         <script type="text/javascript" src="script/window.js"></script>
     </head>
     <body>
+        <header>
+            <img src="images/icon.png" class="logo" />
+            <h1 id="heading"></h1>
+        </header>
+        
         <div class="content" id="loading-content">
             Loading...
         </div>
         <div class="content" id="maillist-content">
-            <form>
+            <form class="toolbar">
                 <input type="button" value="Reload" name="reload_mails" />
                 <input type="button" value="Clear" name="clear_mails" />
             </form>
             
             <div id="maillist-content-table-wrapper">
                 <table id="maillist-content-table">
-                    <tr>
+                    <tr class="heading">
                         <th>Time</th>
                         <th>Template id</th>
                         <th>Template file</th>

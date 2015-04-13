@@ -12,6 +12,7 @@ var mainWindowMail = function(){
         
         jQuery('#maillist-content-table-wrapper').html(_templates.listTable);
         
+        boolTrigger = false;
         jQuery(list).each(function(key, value){
             var listItem = _templates.listItem.clone();
             jQuery(listItem).removeClass('template');
@@ -24,7 +25,18 @@ var mainWindowMail = function(){
             jQuery(listItem).find('input[name=show_body]').attr('listkey', key);
             jQuery(listItem).find('input[name=show_trace]').attr('listkey', key);
             
+            if (boolTrigger){
+                jQuery(listItem).addClass('gray_row');
+            }
+            
             jQuery(listItem).insertAfter('#maillist-content-table .template');
+            
+            if (boolTrigger){
+                boolTrigger = false;
+            }
+            else{
+                boolTrigger = true;
+            }
         })
         
         jQuery('#maillist-content-table input[name=show_trace]').on('click', function(){
@@ -32,7 +44,7 @@ var mainWindowMail = function(){
             var trace = emailData.backtrace;
             
             var windowOpend = window.open("", "", 'menubar=no,location=no,status=no,titlebar=no');
-            body = '<html><html><title>Email (plan)</title></html><body><pre>' + trace + '</pre></body></html>';
+            body = '<html><html><title>Email backtrace</title></html><body><pre>' + trace + '</pre></body></html>';
             jQuery(windowOpend.document.body).html(body);
         })
         

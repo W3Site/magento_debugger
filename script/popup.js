@@ -41,7 +41,8 @@ popupWindow = function(){
                 if (linkType == 'popup'){
                     chrome.windows.create({
                         'url': link,
-                        'type': 'popup'
+                        'type': 'popup',
+                        'width': 850
                     });
                 }
                 else{

@@ -26,6 +26,7 @@ mainWindow = function(){
         
         switch (searchValues['magento_debug']){
             case('model'):
+                jQuery('#heading').html('Cron observer or model methods debug.');
                 jQuery.getScript(window.location.origin + '/script/window/cron.js').done(function(){
                     jQuery('.content').hide();
                     jQuery('#cron-content').show();
@@ -34,6 +35,7 @@ mainWindow = function(){
                 });
                 break;
             case('maillist'):
+                jQuery('#heading').html('Mail list.');
                 jQuery.getScript(window.location.origin + '/script/window/mail.js').done(function(){
                     jQuery('.content').hide();
                     jQuery('#maillist-content').show();
