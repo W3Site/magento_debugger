@@ -43,6 +43,15 @@ mainWindow = function(){
                     mainWindowMailObject.mailListInit(_this);
                 });
                 break;
+            case('mysql'):
+                jQuery('#heading').html('Mysql debug.');
+                jQuery.getScript(window.location.origin + '/script/window/mysql.js').done(function(){
+                    jQuery('.content').hide();
+                    jQuery('#mysql-content').show();
+                    var mainWindowMysqlObject = new mainWindowMysql;
+                    mainWindowMysqlObject.init(_this);
+                });
+                break;
         }
     }
 }
