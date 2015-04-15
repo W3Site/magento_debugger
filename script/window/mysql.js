@@ -38,16 +38,22 @@ mainWindowMysql = function(){
     var _dataLength = 0;
     
     this.getLastData = function(){
-        jQuery.ajax({
-            url: _extensionData.host + '/?magento_debug=mysql&magento_debug_action=getmessages'
-        }).done(function(data){
-            var dataLength = data.length;
-            jQuery('#mysql-content-list').text(data);
-            if (_followMessages && dataLength != _dataLength){
-                jQuery(window).scrollTop(jQuery(document).height());
-            }
-            _dataLength = dataLength;
+        if (_followMessages){
+            jQuery.ajax({
+                url: _extensionData.host + '/?magento_debug=mysql&magento_debug_action=getmessages'
+            }).done(function(data){
+                var dataLength = data.length;
+                jQuery('#mysql-content-list').text(data);
+                if (dataLength != _dataLength){
+                    jQuery(window).scrollTop(jQuery(document).height());
+                }
+                
+                _dataLength = dataLength;
+                window.setTimeout(_this.getLastData, 1);
+            });
+        }
+        else{
             window.setTimeout(_this.getLastData, 1);
-        });
+        }
     }
 }
