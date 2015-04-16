@@ -23,34 +23,6 @@ popupWindow = function(){
     }
     
     this.initOptions = function(){
-        // Links
-        jQuery('a').each(function(key, item){
-            jQuery(item).on('click', function(){
-                var linkType = jQuery(this).attr('linktype');
-                var extensionWindow  = jQuery(this).attr('extensionwindow');
-                var link = jQuery(this).attr('href');
-                if (extensionWindow){
-                    var params = {
-                        'host':_this.getRootPath(_data.tab.url)
-                    };
-                    
-                    var jsonString = jQuery.stringify(params);
-                    link = link + '#' + jQuery.base64.encode(jsonString);
-                }
-                
-                if (linkType == 'popup'){
-                    chrome.windows.create({
-                        'url': link,
-                        'type': 'popup',
-                        'width': 850
-                    });
-                }
-                else{
-                    chrome.tabs.create({'url': link});
-                }
-            });
-        });
-        
         // Reload page
         jQuery('#reload_page').on('click', function(){
             chrome.tabs.reload(_data.tab.id);
@@ -190,7 +162,23 @@ popupWindow = function(){
         jQuery('.debug_form').show();
     }
     
+    this.showWindowUpdate = function(options){
+        var version = chrome.runtime.getManifest().version;
+        var backendVersion = options.backendVersion;
+        var backend_extension_link = 'https://github.com/w3site/magento_debugger_backend/archive/version-' + version + '.zip';
+        jQuery('.debug_update .current_version').html(version);
+        jQuery('.debug_update .backend_version').html(backendVersion);
+        jQuery('.debug_update .download_extension_link').attr('href', backend_extension_link);
+        
+        jQuery('.debug_window').hide();
+        jQuery('.debug_update').show();
+    }
+    
     this.showWindowInstallation = function(){
+        var version = chrome.runtime.getManifest().version;
+        var backend_extension_link = 'https://github.com/w3site/magento_debugger_backend/archive/version-' + version + '.zip';
+        jQuery('.debug_install .current_version').html(version);
+        jQuery('.debug_install .download_extension_link').attr('href', backend_extension_link);
         jQuery('.debug_window').hide();
         jQuery('.debug_install').show();
     }
@@ -201,6 +189,40 @@ popupWindow = function(){
     }
     
     this.init = function(){
+        // Links
+        jQuery('a').each(function(key, item){
+            jQuery(item).on('click', function(){
+                var linkType = jQuery(this).attr('linktype');
+                var extensionWindow  = jQuery(this).attr('extensionwindow');
+                var link = jQuery(this).attr('href');
+                if (extensionWindow){
+                    var params = {
+                        'host':_this.getRootPath(_data.tab.url)
+                    };
+                    
+                    var jsonString = jQuery.stringify(params);
+                    link = link + '#' + jQuery.base64.encode(jsonString);
+                }
+                
+                
+                if (linkType == 'download'){
+                    chrome.downloads.download({
+                        'url' : link
+                    });
+                }
+                else if (linkType == 'popup'){
+                    chrome.windows.create({
+                        'url': link,
+                        'type': 'popup',
+                        'width': 850
+                    });
+                }
+                else{
+                    chrome.tabs.create({'url': link});
+                }
+            });
+        });
+        
         // Data retreiving and options set
         chrome.tabs.getSelected(null, function(tab) {
             _data.tab = tab;
@@ -214,7 +236,14 @@ popupWindow = function(){
                 url: tab.url + '?magento_debug_info=yes',
                 dataType: 'json'
             }).done(function(json){
-                if (typeof json.version == 'string'){
+                var version = chrome.runtime.getManifest().version;
+                
+                if (typeof json.version == 'string' && json.version != version){
+                    _this.showWindowUpdate({
+                        'backendVersion' : json.version
+                    });
+                }
+                else if (typeof json.version == 'string' && json.version == version){
                     _this.showWindowDebugger();
                     
                     chrome.cookies.getAll({url: tab.url}, function(cookies){

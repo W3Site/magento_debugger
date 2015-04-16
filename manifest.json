@@ -3,18 +3,26 @@
 
   "name" : "Magento Debugger",
   "description" : "This extension allows you debug magento store with pleasure.",
-  "version" : "0.0.5",
+  "version" : "0.0.6",
   
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  
+  "icons": {
+      "16": "images/icon_16.png",
+      "48": "images/icon_48.png",
+      "128": "images/icon.png"
+  },
   
   "browser_action" : {
     "default_icon"  : "images/icon.png",
     "default_popup" : "popup.html"
   },
   "permissions" : [
-    "activeTab", "cookies",
-    "activeTab", "webRequest",
-    "https://ajax.googleapis.com/*",
+    "activeTab", 
+    "cookies",
+    "webRequest",
+    "fileSystem",
+    "downloads",
     "*://*/*"
   ]
 }
