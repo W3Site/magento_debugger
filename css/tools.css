@@ -1,0 +1,182 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%; }
+
+header {
+  float: left;
+  width: 85px;
+  height: 100%;
+  overflow: hidden; }
+  header .logo {
+    width: 75px; }
+  header .line {
+    width: 50px;
+    background-color: #f00;
+    height: 100%; }
+  header .leiba {
+    width: 211px;
+    transform: rotate(270deg);
+    margin: 90px 0px 0px -80px; }
+    header .leiba #heading {
+      font-size: 19px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0px 0px 5px 0px;
+      text-decoration: none; }
+    header .leiba .heading-link {
+      color: #fff;
+      margin-left: 142px;
+      text-decoration: none; }
+
+.body {
+  margin-left: 85px;
+  height: 100%;
+  overflow-y: scroll;
+  font-family: Ubuntu, Arial, sans-serif; }
+  .body .debug_window_wrapper {
+    display: table;
+    height: 100%;
+    width: 100%; }
+  .body .debug_loading {
+    line-height: 32px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle; }
+    .body .debug_loading.text {
+      position: relative;
+      top: -12px;
+      padding: 0px 0px 0px 10px; }
+  .body .debug_window {
+    display: none;
+    height: 100%; }
+    .body .debug_window.active {
+      display: table-cell; }
+    .body .debug_window.debug_unavaliable {
+      vertical-align: middle; }
+    .body .debug_window.debug_install {
+      vertical-align: middle; }
+    .body .debug_window.debug_update {
+      vertical-align: middle; }
+    .body .debug_window.debug_form {
+      height: 100%; }
+      .body .debug_window.debug_form .panel-body {
+        height: 100%;
+        margin-top: -58px;
+        padding-top: 58px; }
+        .body .debug_window.debug_form .panel-body .tab {
+          display: none;
+          /* Mail list */ }
+          .body .debug_window.debug_form .panel-body .tab table {
+            border-spacing: 0px;
+            border-left: 1px #eee solid;
+            font-size: 11px; }
+            .body .debug_window.debug_form .panel-body .tab table .heading:hover {
+              background-color: #fff; }
+            .body .debug_window.debug_form .panel-body .tab table tr:hover {
+              background-color: #999;
+              cursor: default; }
+            .body .debug_window.debug_form .panel-body .tab table th, .body .debug_window.debug_form .panel-body .tab table td {
+              padding: 0px 5px;
+              text-align: center;
+              border-right: 1px #eee solid;
+              border-bottom: 1px #eee solid; }
+            .body .debug_window.debug_form .panel-body .tab table th {
+              height: 25px; }
+            .body .debug_window.debug_form .panel-body .tab table .gray_row {
+              background-color: #eee; }
+          .body .debug_window.debug_form .panel-body .tab.tab-profiler {
+            height: 100%;
+            width: 100%; }
+            .body .debug_window.debug_form .panel-body .tab.tab-profiler.active {
+              display: table; }
+            .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar, .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar {
+              height: 100%;
+              overflow: auto;
+              vertical-align: top; }
+            .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar {
+              width: 250px;
+              overflow-x: hidden; }
+              .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar .profiler_url {
+                width: 150px;
+                overflow: hidden;
+                white-space: nowrap; }
+            .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar .long-table-wrapper {
+              width: 100%; }
+            .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data {
+              width: 100%; }
+              .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td {
+                width: 1px;
+                overflow: hidden; }
+                .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td.profiler_name_td {
+                  width: 100%; }
+                .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td .profiler_name {
+                  width: 1px;
+                  white-space: nowrap; }
+          .body .debug_window.debug_form .panel-body .tab.tab-mail #maillist-content-table {
+            width: 100%; }
+          .body .debug_window.debug_form .panel-body .tab.active {
+            display: block; }
+      .body .debug_window.debug_form .top_panel {
+        font-size: 12px;
+        height: 20px;
+        margin: 6px 0px 6px 0px;
+        width: 660px; }
+        .body .debug_window.debug_form .top_panel .control-tabs {
+          padding-top: 3px; }
+          .body .debug_window.debug_form .top_panel .control-tabs a {
+            color: #000;
+            text-decoration: none;
+            padding: 3px 15px;
+            margin: 0px; }
+            .body .debug_window.debug_form .top_panel .control-tabs a:active, .body .debug_window.debug_form .top_panel .control-tabs a:hover {
+              background-color: #eee;
+              border-radius: 8px; }
+        .body .debug_window.debug_form .top_panel .control-element {
+          float: left;
+          margin: 0px 0px 0px 5px;
+          padding-left: 5px;
+          height: 13px; }
+          .body .debug_window.debug_form .top_panel .control-element:first-child {
+            margin: 0px;
+            padding-left: 0px;
+            border-left: none; }
+          .body .debug_window.debug_form .top_panel .control-element input {
+            float: left;
+            margin: 3px 5px 0px 0px; }
+          .body .debug_window.debug_form .top_panel .control-element .text {
+            float: left;
+            margin: 3px 5px 0px 0px; }
+          .body .debug_window.debug_form .top_panel .control-element input[type=text], .body .debug_window.debug_form .top_panel .control-element input[type=button] {
+            margin: -2px 5px 0px 0px;
+            height: 17px;
+            width: 40px;
+            text-align: center; }
+          .body .debug_window.debug_form .top_panel .control-element input[type=button] {
+            padding: 0px;
+            font-size: 12px;
+            width: 15px;
+            height: 15px;
+            border: none;
+            text-indent: -9999px;
+            margin-top: 1px;
+            cursor: pointer;
+            background: transparent url('../images/statusbarButtonGlyphs.png'); }
+            .body .debug_window.debug_form .top_panel .control-element input[type=button][name=debug_model_run] {
+              background-position: -72px -52px; }
+            .body .debug_window.debug_form .top_panel .control-element input[type=button]#backend_config {
+              background-position: -168px -100px; }
+            .body .debug_window.debug_form .top_panel .control-element input[type=button]#reload_page {
+              background-position: -330px -77px; }
+            .body .debug_window.debug_form .top_panel .control-element input[type=button]#clear_all {
+              background-position: -204px -77px; }
+          .body .debug_window.debug_form .top_panel .control-element input#clear_all:focus, .body .debug_window.debug_form .top_panel .control-element input#backend_config:focus, .body .debug_window.debug_form .top_panel .control-element input#reload_page:focus, .body .debug_window.debug_form .top_panel .control-element input[name=debug_model_run]:focus {
+            outline: none; }
+          .body .debug_window.debug_form .top_panel .control-element input[name=debug_model] {
+            width: 165px;
+            text-align: left; }
+  .body .long-table-wrapper {
+    height: 0px;
+    width: 245px; }
+  .body .template {
+    display: none; }

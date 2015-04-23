@@ -232,8 +232,10 @@ popupWindow = function(){
                 return;
             }
             
+            var version = chrome.runtime.getManifest().version;
+            
             jQuery.ajax({
-                url: tab.url + '?magento_debug_info=yes',
+                url: tab.url + '?magento_debug_info=yes&current_version=' + version,
                 dataType: 'json'
             }).done(function(json){
                 var version = chrome.runtime.getManifest().version;

@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Magento Debug</title>
+        <link rel="stylesheet" href="css/tools.css" />
+    </head>
+    <body>
+        <header>
+            <div class="line">
+                <img src="images/icon.png" class="logo" />
+                <div class="leiba">
+                    <a id="heading" href="http://w3site.org/magento_debugger/">Magento Debugger</a>
+                    <a class="heading-link" href="http://w3site.org">W3Site.org</a>
+                </div>
+            </div>
+        </header>
+        <div class="body">
+            <div class="debug_window_wrapper">
+                <div class="debug_window debug_loading active">
+                    <img src="images/loader.gif" />
+                    <span class="text">Preparing...</span>
+                </div>
+                <div class="debug_window debug_unavaliable">
+                    Can not be used for that page.<br/>
+                    Please refer to the <a href="http://w3site.org/magento_debugger">documentation</a>.
+                </div>
+                <div class="debug_window debug_update">
+                    <p>
+                        Current version of extension is <span class="current_version">0.0.0</span>, at the same time version on the backend is <span class="backend_version">0.0.0</span>
+                    </p>
+                    <p>
+                        Please download and update Magento Debugger at the backend with right version through the <a class="download_extension_link" href="">link</a>.
+                    </p>
+                    <p>
+                        To read instructions please refer to the <a href="http://w3site.org/magento_debugger#installation_backend">documentation</a>.
+                    </p>
+                </div>
+                <div class="debug_window debug_install">
+                    <p>
+                        That site does not uses magento debugger at the backend.
+                    </p>
+                    <p>
+                        For current version (<span class="current_version">0.0.0</span>) you could download backend script through the link <a class="download_extension_link" linkType="download" href="">download</a>
+                    </p>
+                    <p>
+                        To install and configure backend debug, please <a href="http://w3site.org/magento_debugger#installation_backend">read instructions to install</a>.
+                    </p>
+                </div>
+                <div class="debug_window debug_form">
+                    <div class="top_panel">
+                        <div class="control-element">
+                            <input class="checkbox-option" type="checkbox" id="debug_blocks" />
+                            <span class="text">Blocks</span>
+                        </div>
+                        <div class="control-element">
+                            <input class="checkbox-option" name="debug_mails" type="checkbox" />
+                            <span class="text">Mails</span>
+                        </div>
+                        <div class="control-element">
+                            <span class="text">DB queries:</span>
+                            <input class="checkbox-option" name="debug_mysql" type="radio" value="no" />
+                            <span class="text">
+                                Disable
+                            </span>
+                            <input class="checkbox-option" name="debug_mysql" type="radio" value="all" />
+                            <span class="text">
+                                All
+                            </span>
+                            <input class="checkbox-option" name="debug_mysql" type="radio" value="value" />
+                            <span class="text">
+                                By time
+                            </span>
+                            <input type="text" name="debug_mysql_value" value="0.05" />
+                            <span class="text">Trace</span>
+                            <input class="checkbox-option" type="checkbox" id="debug_mysql_trace" />
+                        </div>
+                        <div class="control-element">
+                            <span class="text">Profiler</span> <input class="checkbox-option" name="debug_profiler" type="checkbox" />
+                        </div>
+                        <div class="control-element">
+                            <span class="text">Password</span> <input class="checkbox-option" name="debug_password_admin" type="checkbox" />
+                        </div>
+                    </div>
+                    <div class="top_panel">
+                        <div class="control-element">
+                            <span class="text">Start method:</span>
+                            <input type="text" name="debug_model" placeholder="namespace_model::method" />
+                            <input type="button" name="debug_model_run" value="start" />
+                        </div>
+                        
+                        <!--
+                        <div class="control-element">
+                            <a class="text" linktype="developer" extensionwindow="yes" href="cron"  value="Cron">Cron</a>
+                        </div>
+                        -->
+                        
+                        <div class="control-element control-tabs">
+                            <a linktype="developer" extensionwindow="yes" href="mail" value="Mail list">Mails</a>
+                            <a linktype="developer" extensionwindow="yes" href="profiler" value="Profiler">Profiler</a>
+                            <a linktype="popup" extensionwindow="yes" href="/window.html?magento_debug=mysql" value="MySQL debug">SQL</a>
+                            <!-- 
+                            <a class="text" linktype="developer" extensionwindow="yes" href="sql" value="MySQL debug">SQL Queries</a>
+                            -->
+                        </div>
+                        
+                        <div class="control-element">
+                            <input class="text" type="button" id="backend_config" value="Backend config" />
+                        </div>
+                        <div class="control-element">
+                            <input class="text" type="button" id="clear_all" value="Clear all" />
+                        </div>
+                        <div class="control-element">
+                            <input type="button" id="reload_page" value="Reload page" />
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tab tab-wellcome active">
+                            Wellcome
+                        </div>
+                        <div class="tab tab-cron">
+                        </div>
+                        <table class="tab tab-profiler">
+                            <td class="left-sidebar" id="profiler-content-table-wrapper">
+                                <div class="long-table-wrapper">
+                                    <table id="profiler-content-table">
+                                        <tr class="heading">
+                                            <th>Time</th>
+                                            <th>URL</th>
+                                        </tr>
+                                        <tr class="template">
+                                            <td class="profiler_time"></td>
+                                            <td class="profiler_url_td">
+                                                <div class="profiler_url"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            
+                            <td class="main-sidebar" id="profiler-data-wrapper">
+                                <div class="long-table-wrapper">
+                                    <table id="profiler-data">
+                                        <tr class="heading">
+                                            <th>Name</th>
+                                            <th>Summary Time</th>
+                                            <th>Count</th>
+                                            <th>RealMem</th>
+                                            <th>EmailLoc</th>
+                                        </tr>
+                                        <tr class="template">
+                                            <td class="profiler_name_td"><div class="profiler_name"></div></td>
+                                            <td class="profiler_sum_time"></td>
+                                            <td class="profiler_count"></td>
+                                            <td class="profiler_realmem"></td>
+                                            <td class="profiler_emalloc"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </table>
+                        <div class="tab tab-mail">
+                            <form class="toolbar">
+                                <input type="button" value="Reload" name="reload_mails" />
+                                <input type="button" value="Clear" name="clear_mails" />
+                            </form>
+                            
+                            <div id="maillist-content-table-wrapper">
+                                <table id="maillist-content-table">
+                                    <tr class="heading">
+                                        <th>Time</th>
+                                        <th>Template id</th>
+                                        <th>Template file</th>
+                                        <th>Subject</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>View</th>
+                                    </tr>
+                                    <tr class="template">
+                                        <td class="column_time"></td>
+                                        <td class="column_template_id"></td>
+                                        <td class="column_template_file"></td>
+                                        <td class="column_subject"></td>
+                                        <td class="column_from"></td>
+                                        <td class="column_to"></td>
+                                        <td>
+                                            <input type="button" name="show_body" value="Body" />
+                                            <input type="button" name="show_trace" value="Trace" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab tab-sql">
+                            <pre id="mysql-content-list">
+                            </pre>
+                            <div class="toolbar">
+                                <input type="button" id="stop_following" value="Stop following" />
+                                <input type="button" id="start_following" value="Start following" />
+                                <input type="button" id="mysql_content_clear_debug" value="Clear debug" />
+                            </div>
+                        </div>
+                        <div class="tab tab-mails">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

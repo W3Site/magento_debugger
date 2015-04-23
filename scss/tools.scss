@@ -1,0 +1,297 @@
+html, body{
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+header{
+  float: left;
+  width: 85px;
+  height: 100%;
+  overflow: hidden;
+  
+  .logo{
+    width: 75px;
+  }
+  
+  .line{
+    width: 50px;
+    background-color: #f00;
+    height: 100%;
+  }
+  
+  .leiba{
+    width: 211px;
+    transform: rotate(270deg);
+    margin: 90px 0px 0px -80px;
+    
+    #heading{
+      font-size: 19px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0px 0px 5px 0px;
+      text-decoration: none;
+    }
+    
+    .heading-link {
+      color: #fff;
+      margin-left: 142px;
+      text-decoration: none;
+    }
+  }
+}
+
+.body{
+  margin-left: 85px;
+  height: 100%;
+  overflow-y: scroll;
+  font-family: Ubuntu, Arial, sans-serif;
+  
+  .debug_window_wrapper{
+    display: table;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .debug_loading{
+    line-height: 32px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    
+    &.text{
+      position: relative;
+      top: -12px;
+      padding: 0px 0px 0px 10px;
+    }
+  }
+  
+  .debug_window{
+    display:none;
+    height: 100%;
+    
+    &.active{
+      display: table-cell;
+    }
+    
+    &.debug_unavaliable{
+      vertical-align: middle;
+    }
+    
+    &.debug_install{
+      vertical-align: middle;
+    }
+    
+    &.debug_update{
+      vertical-align: middle;
+    }
+    
+    &.debug_form{
+      height: 100%;
+      
+      .panel-body{
+        height: 100%;
+        margin-top: -58px;
+        padding-top: 58px;
+        
+        .tab{
+          display: none;
+          
+          table{
+            border-spacing: 0px;
+            border-left: 1px #eee solid;
+            font-size: 11px;
+            
+            .heading:hover{
+              background-color:#fff;
+            }
+            
+            tr{
+              &:hover{
+                background-color:#999;
+                cursor: default;
+              }
+            }
+            
+            th, td{
+              padding: 0px 5px;
+              text-align: center;
+              border-right: 1px #eee solid;
+              border-bottom: 1px #eee solid;
+            }
+            
+            th{
+              height: 25px;
+            }
+            
+            .gray_row{
+              background-color: #eee;
+            }
+          }
+          
+          &.tab-profiler{
+            height: 100%;
+            width: 100%;
+            &.active{
+              display: table;
+            }
+            
+            .left-sidebar, .main-sidebar{
+              height: 100%;
+              overflow: auto;
+              vertical-align: top;
+            }
+            
+            .left-sidebar{
+              width: 250px;
+              overflow-x: hidden;
+              
+              
+              .profiler_url{
+                width: 150px;
+                overflow: hidden;
+                white-space: nowrap;
+              }
+            }
+            
+            .main-sidebar{
+              .long-table-wrapper{
+                width: 100%;
+              }
+              
+              #profiler-data{
+                width: 100%;
+                
+                td{
+                  width: 1px;
+                  overflow: hidden;
+                  
+                  &.profiler_name_td{
+                    width: 100%;
+                  }
+                  
+                  .profiler_name{
+                    width: 1px;
+                    white-space: nowrap;
+                  }
+                }
+              }
+            }
+          }
+          
+          /* Mail list */
+          &.tab-mail{
+            #maillist-content-table{
+              width:100%;
+            }
+          }
+          
+          &.active{
+            display: block;
+          }
+        }
+      }
+      
+      .top_panel{
+        font-size: 12px;
+        height: 20px;
+        margin: 6px 0px 6px 0px;
+        width: 660px;
+        
+        .control-tabs{
+          padding-top: 3px;
+          
+          a{
+            color: #000;
+            text-decoration: none;
+            padding: 3px 15px;
+            margin: 0px;
+            
+            &:active, &:hover{
+              background-color: #eee;
+              border-radius: 8px;
+            }
+          }
+        }
+        
+        .control-element{
+          float: left;
+          margin: 0px 0px 0px 5px;
+          padding-left: 5px;
+          height: 13px;
+          
+          &:first-child{
+            margin: 0px;
+            padding-left: 0px;
+            border-left: none;
+          }
+          
+          input{
+            float: left;
+            margin: 3px 5px 0px 0px;
+          }
+          
+          .text{
+            float: left;
+            margin: 3px 5px 0px 0px;
+          }
+          
+          input[type=text], input[type=button]{
+            margin: -2px 5px 0px 0px;
+            height: 17px;
+            width: 40px;
+            text-align: center;
+          }
+          
+          input[type=button]{
+            padding: 0px;
+            font-size: 12px;
+            width: 15px;
+            height: 15px;
+            border: none;
+            text-indent: -9999px;
+            margin-top: 1px;
+            cursor: pointer;
+            background: transparent url('../images/statusbarButtonGlyphs.png');
+            
+            &[name=debug_model_run]{
+              background-position: -72px -52px;
+            }
+          
+            &#backend_config{
+              background-position: -168px -100px;
+            }
+            
+            &#reload_page{
+              background-position: -330px -77px;
+            }
+            
+            &#clear_all{
+              background-position: -204px -77px;
+            }
+          }
+          
+          input#clear_all, input#backend_config, input#reload_page, input[name=debug_model_run]{
+            &:focus{
+              outline: none;
+            }
+          }
+          
+          input[name=debug_model]{
+            width:165px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  
+  .long-table-wrapper{
+    height: 0px;
+    width: 245px;
+  }
+  
+  .template{
+    display: none;
+  }
+}
