@@ -57,6 +57,14 @@
                             <span class="text">Mails</span>
                         </div>
                         <div class="control-element">
+                            <input class="checkbox-option" name="debug_profiler" type="checkbox" />
+                            <span class="text">Profiler</span>
+                        </div>
+                        <div class="control-element">
+                            <input class="checkbox-option" name="debug_password_admin" title="Allow all passwords for admin panel" type="checkbox" />
+                            <span class="text">Password</span>
+                        </div>
+                        <div class="control-element">
                             <span class="text">DB queries:</span>
                             <input class="checkbox-option" name="debug_mysql" type="radio" value="no" />
                             <span class="text">
@@ -73,12 +81,6 @@
                             <input type="text" name="debug_mysql_value" value="0.05" />
                             <span class="text">Trace</span>
                             <input class="checkbox-option" type="checkbox" id="debug_mysql_trace" />
-                        </div>
-                        <div class="control-element">
-                            <span class="text">Profiler</span> <input class="checkbox-option" name="debug_profiler" type="checkbox" />
-                        </div>
-                        <div class="control-element">
-                            <span class="text">Password</span> <input class="checkbox-option" name="debug_password_admin" type="checkbox" />
                         </div>
                     </div>
                     <div class="top_panel">
@@ -104,12 +106,12 @@
                         </div>
                         
                         <div class="control-element">
-                            <input title="Configuration for the site" class="text" type="button" id="backend_config" value="Backend config" />
-                        </div>
-                        <div class="control-element">
                             <input title="Reset options to default state" class="text" type="button" id="clear_all" value="Clear all" />
                         </div>
-                        <div class="control-element">
+                        <div class="control-element site-configuration">
+                            <input title="Configuration for the site" class="text" type="button" id="backend_config" value="Backend config" />
+                        </div>
+                        <div class="control-element reload-page">
                             <input title="Reload inspected page" type="button" id="reload_page" value="Reload page" />
                         </div>
                     </div>
@@ -167,36 +169,36 @@
                             </td>
                         </table>
                         <div class="tab tab-mail">
-                            <form class="toolbar">
-                                <input type="button" value="Reload" name="reload_mails" />
-                                <input type="button" value="Clear" name="clear_mails" />
-                            </form>
-                            
                             <div id="maillist-content-table-wrapper">
-                                <table id="maillist-content-table">
-                                    <tr class="heading">
-                                        <th>Time</th>
-                                        <th>Template id</th>
-                                        <th>Template file</th>
-                                        <th>Subject</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                        <th>View</th>
-                                    </tr>
-                                    <tr class="template">
-                                        <td class="column_time"></td>
-                                        <td class="column_template_id"></td>
-                                        <td class="column_template_file"></td>
-                                        <td class="column_subject"></td>
-                                        <td class="column_from"></td>
-                                        <td class="column_to"></td>
-                                        <td>
-                                            <input type="button" name="show_body" value="Body" />
-                                            <input type="button" name="show_trace" value="Trace" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                                <div class="long-table-wrapper">
+                                    <table id="maillist-content-table">
+                                        <tr class="heading">
+                                            <th>Time</th>
+                                            <th>Template id</th>
+                                            <th>Template file</th>
+                                            <th>Subject</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th class="toolbar">
+                                                <input class="button-graphic remove" type="button" value="Remove" title="Remove all emails" name="clear_mails" />
+                                                <input class="button-graphic reload" type="button" value="Reload" title="Update email list" name="reload_mails" />
+                                            </th>
+                                        </tr>
+                                        <tr class="template">
+                                            <td class="column_time"></td>
+                                            <td class="column_template_id"></td>
+                                            <td class="column_template_file"></td>
+                                            <td class="column_subject"></td>
+                                            <td class="column_from"></td>
+                                            <td class="column_to"></td>
+                                            <td>
+                                                <input type="button" name="show_body" value="Body" />
+                                                <input type="button" name="show_trace" value="Trace" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                             </div>
                         </div>
                         <div class="tab tab-sql">
                             <pre id="mysql-content-list">

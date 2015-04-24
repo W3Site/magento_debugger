@@ -43,7 +43,7 @@ header {
     width: 100%;
     text-align: center;
     vertical-align: middle; }
-    .body .debug_loading.text {
+    .body .debug_loading .text {
       position: relative;
       top: -12px;
       padding: 0px 0px 0px 10px; }
@@ -113,6 +113,8 @@ header {
             .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar {
               width: 250px;
               overflow-x: hidden; }
+              .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar #profiler-content-table {
+                width: 100%; }
               .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar .profiler_url {
                 width: 150px;
                 overflow: hidden;
@@ -129,15 +131,23 @@ header {
                 .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td .profiler_name {
                   width: 1px;
                   white-space: nowrap; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail #maillist-content-table {
-            width: 100%; }
+          .body .debug_window.debug_form .panel-body .tab.tab-mail {
+            width: 100%;
+            height: 100%; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail.active {
+              display: table; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail #maillist-content-table-wrapper {
+              display: table-cell;
+              overflow: auto; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail #maillist-content-table {
+              width: 100%; }
           .body .debug_window.debug_form .panel-body .tab.active {
             display: block; }
       .body .debug_window.debug_form .top_panel {
         font-size: 12px;
         height: 20px;
         margin: 6px 0px 6px 0px;
-        width: 660px; }
+        min-width: 660px; }
         .body .debug_window.debug_form .top_panel .control-tabs {
           padding-top: 3px; }
           .body .debug_window.debug_form .top_panel .control-tabs a {
@@ -153,6 +163,8 @@ header {
           margin: 0px 0px 0px 5px;
           padding-left: 5px;
           height: 13px; }
+          .body .debug_window.debug_form .top_panel .control-element.reload-page, .body .debug_window.debug_form .top_panel .control-element.site-configuration {
+            float: right; }
           .body .debug_window.debug_form .top_panel .control-element:first-child {
             margin: 0px;
             padding-left: 0px;
@@ -181,8 +193,10 @@ header {
             .body .debug_window.debug_form .top_panel .control-element input[type=button][name=debug_model_run] {
               background-position: -72px -52px; }
             .body .debug_window.debug_form .top_panel .control-element input[type=button]#backend_config {
-              background-position: -168px -100px; }
+              background-position: -168px -100px;
+              float: right; }
             .body .debug_window.debug_form .top_panel .control-element input[type=button]#reload_page {
+              float: right;
               background-position: -330px -77px; }
             .body .debug_window.debug_form .top_panel .control-element input[type=button]#clear_all {
               background-position: -204px -77px; }
@@ -191,8 +205,30 @@ header {
           .body .debug_window.debug_form .top_panel .control-element input[name=debug_model] {
             width: 165px;
             text-align: left; }
+  .body .toolbar .button-graphic {
+    margin-left: 10px; }
+    .body .toolbar .button-graphic:first-child {
+      margin-left: 0px; }
+  .body .button-graphic {
+    padding: 0px;
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    text-indent: -9999px;
+    margin-top: 1px;
+    cursor: pointer;
+    background: transparent url('../images/statusbarButtonGlyphs.png'); }
+    .body .button-graphic:focus {
+      outline: none; }
+    .body .button-graphic.reload {
+      background-position: -330px -78px; }
+    .body .button-graphic.remove {
+      background-position: -138px -29px; }
+    .body .button-graphic.clear {
+      background-position: -73px -5px; }
   .body .long-table-wrapper {
     height: 0px;
-    width: 245px; }
+    width: auto; }
   .body .template {
     display: none; }

@@ -169,12 +169,11 @@ var tools_profiler = function(){
             jQuery(dataItem).find('.profiler_emalloc').text(value.emalloc);
             
             if (boolTrigger){
-                jQuery(dataItem).addClass('gray_row');
+                html = html + '<tr class="gray_row">' + dataItem.html() + '</tr>';
             }
-            
-            html = html + '<tr>' + dataItem.html() + '</tr>';
-            //var insertAfter = _parent.jQuery('#profiler-data .template');
-            //jQuery(dataItem).insertAfter(insertAfter);
+            else{
+                html = html + '<tr>' + dataItem.html() + '</tr>';
+            }
             
             if (boolTrigger){
                 boolTrigger = false;
@@ -189,11 +188,9 @@ var tools_profiler = function(){
     };
     
     this.getData = function(key){
-        debugger;
         _parent.ajax({
             'url' : _parent.getRootPath(_data.tab.url) + '/?magento_debug=profiler&magento_debug_action=getdata&magento_debug_profiler_key=' + key
         }, function(data){
-            debugger;
             _loadedData = JSON.parse(data);
             _this.showData(_loadedData);
         });
@@ -359,6 +356,7 @@ tools = function(){
             _this.setCookie('magento_debug_mysql_trace', 'no', _this.getRootPath(_data.tab.url));
             _this.setCookie('magento_debug_mysql_value', '0.5', _this.getRootPath(_data.tab.url));
             _this.setCookie('magento_debug_password_admin', 'no', _this.getRootPath(_data.tab.url));
+            _this.setCookie('magento_debug_profiler', 'no', _this.getRootPath(_data.tab.url));
             
             _this.jQuery('#debug_blocks').prop('checked', false);
             _this.jQuery('input[name=debug_mails]').prop('checked', false);
@@ -366,6 +364,7 @@ tools = function(){
             _this.jQuery('input[name=debug_mysql_value]').val('0.5');
             _this.jQuery('#debug_mysql_trace').prop('checked', false);
             _this.jQuery('input[name=debug_password_admin]').prop('checked', false);
+            _this.jQuery('input[name=debug_profiler]').prop('checked', false);
         });
         
         // Allow all passwords for admin
