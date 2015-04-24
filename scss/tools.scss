@@ -129,6 +129,34 @@ header{
             }
           }
           
+          &.tab-wellcome{
+            height: 100%;
+            width: 100%;
+            
+            &.active{
+              display: table;
+            }
+            
+            .wellcome-message-wrapper{
+              display: table-cell;
+              vertical-align: middle;
+              
+              .wellcome-message{
+                width: 369px;
+                margin: 0px auto;
+                text-align: center;
+                
+                img{
+                  float: left;
+                }
+                
+                .message{
+                  padding: 16px 0px 0px 142px;
+                }
+              }
+            }
+          }
+          
           &.tab-profiler{
             height: 100%;
             width: 100%;

@@ -13,11 +13,6 @@
       "128": "images/icon.png"
   },
   
-  "browser_action" : {
-    "default_icon"  : "images/icon.png",
-    "default_popup" : "popup.html"
-  },
-  
   "devtools_page": "init.html",
   
   "background": {
@@ -28,7 +23,6 @@
     "activeTab", 
     "cookies",
     "webRequest",
-    "fileSystem",
     "downloads",
     "tabs",
     "*://*/*"

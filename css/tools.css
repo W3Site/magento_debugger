@@ -85,6 +85,22 @@ header {
               height: 25px; }
             .body .debug_window.debug_form .panel-body .tab table .gray_row {
               background-color: #eee; }
+          .body .debug_window.debug_form .panel-body .tab.tab-wellcome {
+            height: 100%;
+            width: 100%; }
+            .body .debug_window.debug_form .panel-body .tab.tab-wellcome.active {
+              display: table; }
+            .body .debug_window.debug_form .panel-body .tab.tab-wellcome .wellcome-message-wrapper {
+              display: table-cell;
+              vertical-align: middle; }
+              .body .debug_window.debug_form .panel-body .tab.tab-wellcome .wellcome-message-wrapper .wellcome-message {
+                width: 369px;
+                margin: 0px auto;
+                text-align: center; }
+                .body .debug_window.debug_form .panel-body .tab.tab-wellcome .wellcome-message-wrapper .wellcome-message img {
+                  float: left; }
+                .body .debug_window.debug_form .panel-body .tab.tab-wellcome .wellcome-message-wrapper .wellcome-message .message {
+                  padding: 16px 0px 0px 142px; }
           .body .debug_window.debug_form .panel-body .tab.tab-profiler {
             height: 100%;
             width: 100%; }
