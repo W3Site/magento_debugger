@@ -133,7 +133,16 @@ var tools_profiler = function(){
             
             var insertAfter = _parent.jQuery('#profiler-content-table .template');
             jQuery(listItem).insertAfter(insertAfter);
-            jQuery(listItem).on('click', _this.clickListItem);
+            jQuery(listItem).find('.profiler_url_td, .profiler_time').on('click', _this.clickListItem);
+            jQuery(listItem).find('input.remove').on('click', function(){
+                var profilerName = jQuery(this).parent().parent().attr('profiler_name');
+                
+                _parent.ajax({
+                    'url' : _parent.getRootPath(_data.tab.url) + '/?magento_debug=profiler&magento_debug_action=removedata&magento_debug_profiler_key=' + profilerName
+                }, function(data){
+                    _this.getList();
+                });
+            });
             
             if (boolTrigger){
                 boolTrigger = false;
@@ -141,11 +150,20 @@ var tools_profiler = function(){
             else{
                 boolTrigger = true;
             }
-        })
+        });
+        
+        _parent.jQuery('#profilers_reload').on('click', _this.getList);
+        _parent.jQuery('#profilers_clear').on('click', function(){
+            _parent.ajax({
+                'url' : _parent.getRootPath(_data.tab.url) + '/?magento_debug=profiler&magento_debug_action=removedata&magento_debug_profiler_key=whole'
+            }, function(data){
+                _this.getList();
+            });
+        });
     }
     
     this.clickListItem = function(e){
-        var profilerName = jQuery(this).attr('profiler_name');
+        var profilerName = jQuery(this).parent().attr('profiler_name');
         _this.getData(profilerName);
     }
     
@@ -220,7 +238,6 @@ var tools_profiler = function(){
         _templates.dataItem = dataItemTemplate.clone();
 
         _this.getList();
-        //setInterval(_this.getList, 5000);
     }
 }
 
@@ -495,6 +512,18 @@ tools = function(){
         _this.jQuery('.debug_update .current_version').html(version);
         _this.jQuery('.debug_update .backend_version').html(backendVersion);
         _this.jQuery('.debug_update .download_extension_link').attr('href', backend_extension_link);
+        
+        debugger;
+        _this.jQuery('.debug_update .update-message').removeClass('active');
+        switch(options.error_code){
+            case(1):
+                _this.jQuery('.debug_update .update-instruction').addClass('active');
+                break;
+            default:
+                _this.jQuery('.debug_update .update-default').html(options.error_message);
+                _this.jQuery('.debug_update .update-default').addClass('active');
+                break;
+        }
         
         _this.jQuery('.debug_window').removeClass('active');
         _this.jQuery('.debug_update').addClass('active');

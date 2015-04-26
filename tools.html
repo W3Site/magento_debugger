@@ -28,9 +28,10 @@
                     <p>
                         Current version of extension is <span class="current_version">0.0.0</span>, at the same time version on the backend is <span class="backend_version">0.0.0</span>
                     </p>
-                    <p>
-                        Please download and update Magento Debugger at the backend with right version through the <a class="download_extension_link" href="">link</a>.
+                    <p class="update-message update-instruction">
+                        Files of backend part of "Magento Debugger" isn't set to write. To fix file privileges, please through root(admin) user run command "php privileges.php" at the debugger directory.
                     </p>
+                    <p class="update-message update-default"></p>
                     <p>
                         To read instructions please refer to the <a href="http://w3site.org/magento_debugger#installation_backend">documentation</a>.
                     </p>
@@ -136,11 +137,18 @@
                                         <tr class="heading">
                                             <th>Time</th>
                                             <th>URL</th>
+                                            <th>
+                                                <input class="button-graphic remove" type="button" title="Remove all emails" id="profilers_clear" title="Clear whole profiling" />
+                                                <input class="button-graphic reload" type="button" title="Update email list" id="profilers_reload" title="Update profiling" />
+                                            </th>
                                         </tr>
                                         <tr class="template">
                                             <td class="profiler_time"></td>
                                             <td class="profiler_url_td">
                                                 <div class="profiler_url"></div>
+                                            </td>
+                                            <td>
+                                                <input class="button-graphic remove" type="button" title="Remove" id="profilers_reload" title="Remove" />
                                             </td>
                                         </tr>
                                     </table>
