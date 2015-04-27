@@ -116,7 +116,7 @@ header {
               .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar #profiler-content-table {
                 width: 100%; }
               .body .debug_window.debug_form .panel-body .tab.tab-profiler .left-sidebar .profiler_url {
-                width: 150px;
+                width: 132px;
                 overflow: hidden;
                 white-space: nowrap; }
             .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar .long-table-wrapper {

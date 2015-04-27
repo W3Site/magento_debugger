@@ -66,6 +66,27 @@ var tools_mail = function(){
                 jQuery(windowOpend.document.body).html(body);
             }
         })
+        
+        _parent.jQuery('input[name=clear_mails]').on('click', function(){
+        	debugger;
+            _parent.ajax({
+                'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=clearlist'
+            }, function(data){
+                _this.showList(_loadedList = new Array());
+            });
+        });
+        
+        _parent.jQuery('input[name=reload_mails]').on('click', function(){
+        	debugger;
+            _parent.ajax({
+                'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=getlist',
+                'dataType' : 'json'
+            }, function(list){
+                _loadedList = JSON.parse(list);
+                _this.showList(_loadedList);
+            });
+        });
+
     }
     
     this.init = function(parent){
@@ -76,24 +97,6 @@ var tools_mail = function(){
         var listItemTemplate = _parent.jQuery('#maillist-content-table .template');
         _templates.listTable = listTemplate.html();
         _templates.listItem = listItemTemplate.clone();
-        
-        _parent.jQuery('input[name=clear_mails]').on('click', function(){
-            _parent.ajax({
-                'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=clearlist'
-            }, function(data){
-                _this.showList(_loadedList = new Array());
-            });
-        });
-        
-        _parent.jQuery('input[name=reload_mails]').on('click', function(){
-            _parent.ajax({
-                'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=getlist',
-                'dataType' : 'json'
-            }, function(list){
-                _loadedList = JSON.parse(list);
-                _this.showList(_loadedList);
-            });
-        });
         
         _parent.ajax({
             'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=getlist',
@@ -125,6 +128,7 @@ var tools_profiler = function(){
             jQuery(listItem).removeClass('template');
             jQuery(listItem).find('.profiler_time').text(value.time);
             jQuery(listItem).find('.profiler_url').text(value.url);
+            jQuery(listItem).find('.profiler_url').attr('title', value.url);
             jQuery(listItem).attr('profiler_name', value.key)
             
             if (boolTrigger){
@@ -181,6 +185,7 @@ var tools_profiler = function(){
             var dataItem = _templates.dataItem.clone();
             jQuery(dataItem).removeClass('template');
             jQuery(dataItem).find('.profiler_name').text(value.name);
+            jQuery(dataItem).find('.profiler_name').attr('title', value.name);
             jQuery(dataItem).find('.profiler_sum_time').text(value.sum);
             jQuery(dataItem).find('.profiler_count').text(value.count);
             jQuery(dataItem).find('.profiler_realmem').text(value.realmem);
