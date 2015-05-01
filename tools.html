@@ -56,14 +56,6 @@
                             <span class="text">Blocks</span>
                         </div>
                         <div class="control-element">
-                            <input class="checkbox-option" name="debug_mails" type="checkbox" />
-                            <span class="text">Mails</span>
-                        </div>
-                        <div class="control-element">
-                            <input class="checkbox-option" name="debug_profiler" type="checkbox" />
-                            <span class="text">Profiler</span>
-                        </div>
-                        <div class="control-element">
                             <input class="checkbox-option" name="debug_password_admin" title="Allow all passwords for admin panel" type="checkbox" />
                             <span class="text">Password</span>
                         </div>
@@ -132,83 +124,103 @@
                         </div>
                         <div class="tab tab-cron">
                         </div>
-                        <table class="tab tab-profiler">
-                            <td class="left-sidebar" id="profiler-content-table-wrapper">
-                                <div class="long-table-wrapper">
-                                    <table id="profiler-content-table">
-                                        <tr class="heading">
-                                            <th>Time</th>
-                                            <th>URL</th>
-                                            <th>
-                                                <input class="button-graphic remove" type="button" title="Remove all emails" id="profilers_clear" title="Clear whole profiling" />
-                                                <input class="button-graphic reload" type="button" title="Update email list" id="profilers_reload" title="Update profiling" />
-                                            </th>
-                                        </tr>
-                                        <tr class="template">
-                                            <td class="profiler_time"></td>
-                                            <td class="profiler_url_td">
-                                                <div class="profiler_url"></div>
-                                            </td>
-                                            <td>
-                                                <input class="button-graphic remove" type="button" title="Remove" id="profilers_reload" title="Remove" />
-                                            </td>
-                                        </tr>
-                                    </table>
+                        <div class="tab tab-profiler">
+                            <div>
+                                <div class="top-panel">
+                                    <div class="control-element">
+                                        <input class="checkbox-option" name="debug_profiler" type="checkbox" />
+                                        <span class="text">Collect profiling information enabled</span>
+                                    </div>
                                 </div>
-                            </td>
-                            
-                            <td class="main-sidebar" id="profiler-data-wrapper">
-                                <div class="long-table-wrapper">
-                                    <table id="profiler-data">
-                                        <tr class="heading">
-                                            <th>Name</th>
-                                            <th>Summary Time</th>
-                                            <th>Count</th>
-                                            <th>RealMem</th>
-                                            <th>EmailLoc</th>
-                                        </tr>
-                                        <tr class="template">
-                                            <td class="profiler_name_td"><div class="profiler_name"></div></td>
-                                            <td class="profiler_sum_time"></td>
-                                            <td class="profiler_count"></td>
-                                            <td class="profiler_realmem"></td>
-                                            <td class="profiler_emalloc"></td>
-                                        </tr>
-                                    </table>
+                            </div>
+                            <div>
+                                <div class="left-sidebar" id="profiler-content-table-wrapper">
+                                    <div class="long-table-wrapper">
+                                        <table id="profiler-content-table">
+                                            <tr class="heading">
+                                                <th>Time</th>
+                                                <th>URL</th>
+                                                <th>
+                                                    <input class="button-graphic remove" type="button" title="Remove all emails" id="profilers_clear" title="Clear whole profiling" />
+                                                    <input class="button-graphic reload" type="button" title="Update email list" id="profilers_reload" title="Update profiling" />
+                                                </th>
+                                            </tr>
+                                            <tr class="template">
+                                                <td class="profiler_time"></td>
+                                                <td class="profiler_url_td">
+                                                    <div class="profiler_url"></div>
+                                                </td>
+                                                <td>
+                                                    <input class="button-graphic remove" type="button" title="Remove" id="profilers_reload" title="Remove" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-                            </td>
-                        </table>
+                                
+                                <div class="main-sidebar" id="profiler-data-wrapper">
+                                    <div class="long-table-wrapper">
+                                        <table id="profiler-data">
+                                            <tr class="heading">
+                                                <th>Name</th>
+                                                <th>Summary Time</th>
+                                                <th>Count</th>
+                                                <th>RealMem</th>
+                                                <th>EmailLoc</th>
+                                            </tr>
+                                            <tr class="template">
+                                                <td class="profiler_name_td"><div class="profiler_name"></div></td>
+                                                <td class="profiler_sum_time"></td>
+                                                <td class="profiler_count"></td>
+                                                <td class="profiler_realmem"></td>
+                                                <td class="profiler_emalloc"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab tab-mail">
-                            <div id="maillist-content-table-wrapper">
-                                <div class="long-table-wrapper">
-                                    <table id="maillist-content-table">
-                                        <tr class="heading">
-                                            <th>Time</th>
-                                            <th>Template id</th>
-                                            <th>Template file</th>
-                                            <th>Subject</th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                            <th class="toolbar">
-                                                <input class="button-graphic remove" type="button" value="Remove" title="Remove all emails" name="clear_mails" />
-                                                <input class="button-graphic reload" type="button" value="Reload" title="Update email list" name="reload_mails" />
-                                            </th>
-                                        </tr>
-                                        <tr class="template">
-                                            <td class="column_time"></td>
-                                            <td class="column_template_id"></td>
-                                            <td class="column_template_file"></td>
-                                            <td class="column_subject"></td>
-                                            <td class="column_from"></td>
-                                            <td class="column_to"></td>
-                                            <td>
-                                                <input type="button" name="show_body" value="Body" />
-                                                <input type="button" name="show_trace" value="Trace" />
-                                            </td>
-                                        </tr>
-                                    </table>
+                            <div>
+                                <div class="top-panel">
+                                    <div class="control-element">
+                                        <input class="checkbox-option" name="debug_mails" type="checkbox" />
+                                        <span class="text">Collect mails enabled</span>
+                                    </div>
                                 </div>
-                             </div>
+                            </div>
+                            <div>
+                                <div id="maillist-content-table-wrapper">
+                                    <div class="long-table-wrapper">
+                                        <table id="maillist-content-table">
+                                            <tr class="heading">
+                                                <th>Time</th>
+                                                <th>Template id</th>
+                                                <th>Template file</th>
+                                                <th>Subject</th>
+                                                <th>From</th>
+                                                <th>To</th>
+                                                <th class="toolbar">
+                                                    <input class="button-graphic remove" type="button" value="Remove" title="Remove all emails" name="clear_mails" />
+                                                    <input class="button-graphic reload" type="button" value="Reload" title="Update email list" name="reload_mails" />
+                                                </th>
+                                            </tr>
+                                            <tr class="template">
+                                                <td class="column_time"></td>
+                                                <td class="column_template_id"></td>
+                                                <td class="column_template_file"></td>
+                                                <td class="column_subject"></td>
+                                                <td class="column_from"></td>
+                                                <td class="column_to"></td>
+                                                <td>
+                                                    <input type="button" name="show_body" value="Body" />
+                                                    <input type="button" name="show_trace" value="Trace" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab tab-sql">
                             <pre id="mysql-content-list">
@@ -218,8 +230,6 @@
                                 <input type="button" id="start_following" value="Start following" />
                                 <input type="button" id="mysql_content_clear_debug" value="Clear debug" />
                             </div>
-                        </div>
-                        <div class="tab tab-mails">
                         </div>
                     </div>
                 </div>

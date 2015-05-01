@@ -68,7 +68,6 @@ var tools_mail = function(){
         })
         
         _parent.jQuery('input[name=clear_mails]').on('click', function(){
-        	debugger;
             _parent.ajax({
                 'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=clearlist'
             }, function(data){
@@ -77,7 +76,6 @@ var tools_mail = function(){
         });
         
         _parent.jQuery('input[name=reload_mails]').on('click', function(){
-        	debugger;
             _parent.ajax({
                 'url' : _parent.getRootPath(_data.tab.url) + '?magento_debug=maillist&magento_debug_action=getlist',
                 'dataType' : 'json'

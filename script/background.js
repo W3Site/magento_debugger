@@ -1,5 +1,6 @@
 var background = new function(){
     var _this = this;
+    var _backendVersion = '0.1.1'
     
     this.getRootPath = function(url){
         var match = url.match(/.*:\/\/[^\/]*/i);
@@ -51,7 +52,8 @@ var background = new function(){
                 return;
             }
             
-            var version = chrome.runtime.getManifest().version;
+            //var version = chrome.runtime.getManifest().version;
+            var version = _backendVersion;
             
             var xhr = new XMLHttpRequest();
             xhr.open('GET', _this.getRootPath(tab.url) + '?magento_debug_info=yes&current_version=' + version);
