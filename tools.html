@@ -3,6 +3,10 @@
     <head>
         <title>Magento Debug</title>
         <link rel="stylesheet" href="css/tools.css" />
+        <!-- 
+        <script src="script/tools/mail.js"></script>
+        <script src="script/tools.js"></script>
+        -->
     </head>
     <body>
         <header>
@@ -79,21 +83,10 @@
                         </div>
                     </div>
                     <div class="top_panel">
-                        <div class="control-element">
-                            <span class="text">Start method:</span>
-                            <input type="text" name="debug_model" placeholder="namespace_model::method" />
-                            <input type="button" name="debug_model_run" value="start" title="Run method at the model" />
-                        </div>
-                        
-                        <!--
-                        <div class="control-element">
-                            <a class="text" linktype="developer" extensionwindow="yes" href="cron"  value="Cron">Cron</a>
-                        </div>
-                        -->
-                        
                         <div class="control-element control-tabs">
                             <a linktype="developer" extensionwindow="yes" href="mail" value="Mail list">Mails</a>
                             <a linktype="developer" extensionwindow="yes" href="profiler" value="Profiler">Profiler</a>
+                            <a linktype="developer" extensionwindow="yes" href="model" value="Cron & Model">Cron & Models</a>
                             <a linktype="popup" extensionwindow="yes" href="/window.html?magento_debug=mysql" value="MySQL debug">SQL</a>
                             <!-- 
                             <a class="text" linktype="developer" extensionwindow="yes" href="sql" value="MySQL debug">SQL Queries</a>
@@ -123,6 +116,18 @@
                             </div>
                         </div>
                         <div class="tab tab-cron">
+                            <div>
+                                <div class="top-panel">
+                                    <div class="control-element">
+                                        <span class="text">Start method:</span>
+                                        <input type="text" name="debug_model" placeholder="namespace_model::method" />
+                                        <input type="button" name="debug_model_run" value="start" title="Run method at the model" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>as</div>
+                            </div>
                         </div>
                         <div class="tab tab-profiler">
                             <div>

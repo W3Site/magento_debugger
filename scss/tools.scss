@@ -80,6 +80,74 @@ header{
       float: left;
       margin: 0px;
     }
+    
+    &.reload-page, &.site-configuration{
+      float: right;
+    }
+    
+    &:first-child{
+      margin: 0px;
+      padding-left: 0px;
+      border-left: none;
+    }
+    
+    input{
+      float: left;
+      margin: 3px 5px 0px 0px;
+    }
+    
+    .text{
+      float: left;
+      margin: 3px 5px 0px 0px;
+    }
+    
+    input[type=text], input[type=button]{
+       margin: -2px 5px 0px 0px;
+       height: 17px;
+       width: 40px;
+       text-align: center;
+    }
+    
+    input[type=button]{
+      padding: 0px;
+      font-size: 12px;
+      width: 15px;
+      height: 15px;
+      border: none;
+      text-indent: -9999px;
+      margin-top: 1px;
+      cursor: pointer;
+      background: transparent url('../images/statusbarButtonGlyphs.png');
+      
+      &[name=debug_model_run]{
+        background-position: -72px -52px;
+      }
+      
+      &#backend_config{
+        background-position: -168px -100px;
+        float: right;
+      }
+      
+      &#reload_page{
+        float: right;
+        background-position: -330px -77px;
+      }
+      
+      &#clear_all{
+        background-position: -204px -77px;
+      }
+    }
+    
+    input#clear_all, input#backend_config, input#reload_page, input[name=debug_model_run]{
+      &:focus{
+        outline: none;
+      }
+    }
+    
+    input[name=debug_model]{
+      width:165px;
+      text-align: left;
+    }
   }
   
   .debug_window{
@@ -224,7 +292,7 @@ header{
           }
           
           /* Common tab table */
-          &.tab-mail, &.tab-profiler{
+          &.tab-mail, &.tab-profiler, &.tab-cron{
             &.active{
               display: table;
             }
@@ -283,76 +351,6 @@ header{
               background-color: #eee;
               border-radius: 8px;
             }
-          }
-        }
-        
-        .control-element{
-          &.reload-page, &.site-configuration{
-            float: right;
-          }
-          
-          &:first-child{
-            margin: 0px;
-            padding-left: 0px;
-            border-left: none;
-          }
-          
-          input{
-            float: left;
-            margin: 3px 5px 0px 0px;
-          }
-          
-          .text{
-            float: left;
-            margin: 3px 5px 0px 0px;
-          }
-          
-          input[type=text], input[type=button]{
-            margin: -2px 5px 0px 0px;
-            height: 17px;
-            width: 40px;
-            text-align: center;
-          }
-          
-          input[type=button]{
-            padding: 0px;
-            font-size: 12px;
-            width: 15px;
-            height: 15px;
-            border: none;
-            text-indent: -9999px;
-            margin-top: 1px;
-            cursor: pointer;
-            background: transparent url('../images/statusbarButtonGlyphs.png');
-            
-            &[name=debug_model_run]{
-              background-position: -72px -52px;
-            }
-          
-            &#backend_config{
-              background-position: -168px -100px;
-              float: right;
-            }
-            
-            &#reload_page{
-              float: right;
-              background-position: -330px -77px;
-            }
-            
-            &#clear_all{
-              background-position: -204px -77px;
-            }
-          }
-          
-          input#clear_all, input#backend_config, input#reload_page, input[name=debug_model_run]{
-            &:focus{
-              outline: none;
-            }
-          }
-          
-          input[name=debug_model]{
-            width:165px;
-            text-align: left;
           }
         }
       }

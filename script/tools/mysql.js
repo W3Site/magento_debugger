@@ -3,7 +3,6 @@
  * All rights reserved.
  */
 
-
 var tools_mysql = function(){
     var _this = this;
     var _extensionData = null;
@@ -69,22 +68,3 @@ var tools_mysql = function(){
         }
     }
 }
-
-var initialised = false;
-
-chrome.devtools.panels.create(
-    "Magento",
-    "images/icon.png",
-    "tools.html",
-    function(panel) {
-        panel.onShown.addListener(function(win){
-            if (initialised){
-                return;
-            }
-            initialised = true;
-            
-            initObject = new tools;
-            initObject.init(win);
-        });
-    }
-);

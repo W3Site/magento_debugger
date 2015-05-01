@@ -57,6 +57,48 @@ header {
     .body .control-element > * {
       float: left;
       margin: 0px; }
+    .body .control-element.reload-page, .body .control-element.site-configuration {
+      float: right; }
+    .body .control-element:first-child {
+      margin: 0px;
+      padding-left: 0px;
+      border-left: none; }
+    .body .control-element input {
+      float: left;
+      margin: 3px 5px 0px 0px; }
+    .body .control-element .text {
+      float: left;
+      margin: 3px 5px 0px 0px; }
+    .body .control-element input[type=text], .body .control-element input[type=button] {
+      margin: -2px 5px 0px 0px;
+      height: 17px;
+      width: 40px;
+      text-align: center; }
+    .body .control-element input[type=button] {
+      padding: 0px;
+      font-size: 12px;
+      width: 15px;
+      height: 15px;
+      border: none;
+      text-indent: -9999px;
+      margin-top: 1px;
+      cursor: pointer;
+      background: transparent url('../images/statusbarButtonGlyphs.png'); }
+      .body .control-element input[type=button][name=debug_model_run] {
+        background-position: -72px -52px; }
+      .body .control-element input[type=button]#backend_config {
+        background-position: -168px -100px;
+        float: right; }
+      .body .control-element input[type=button]#reload_page {
+        float: right;
+        background-position: -330px -77px; }
+      .body .control-element input[type=button]#clear_all {
+        background-position: -204px -77px; }
+    .body .control-element input#clear_all:focus, .body .control-element input#backend_config:focus, .body .control-element input#reload_page:focus, .body .control-element input[name=debug_model_run]:focus {
+      outline: none; }
+    .body .control-element input[name=debug_model] {
+      width: 165px;
+      text-align: left; }
   .body .debug_window {
     display: none;
     height: 100%; }
@@ -140,13 +182,13 @@ header {
                 .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td .profiler_name {
                   width: 1px;
                   white-space: nowrap; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active {
+          .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-cron.active {
             display: table; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div {
+          .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div {
             display: table-row; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div > div {
               display: table-cell; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel {
+          .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-cron .top-panel {
             display: table-cell;
             height: 16px; }
           .body .debug_window.debug_form .panel-body .tab.tab-mail {
@@ -174,48 +216,6 @@ header {
             .body .debug_window.debug_form .top_panel .control-tabs a:active, .body .debug_window.debug_form .top_panel .control-tabs a:hover {
               background-color: #eee;
               border-radius: 8px; }
-        .body .debug_window.debug_form .top_panel .control-element.reload-page, .body .debug_window.debug_form .top_panel .control-element.site-configuration {
-          float: right; }
-        .body .debug_window.debug_form .top_panel .control-element:first-child {
-          margin: 0px;
-          padding-left: 0px;
-          border-left: none; }
-        .body .debug_window.debug_form .top_panel .control-element input {
-          float: left;
-          margin: 3px 5px 0px 0px; }
-        .body .debug_window.debug_form .top_panel .control-element .text {
-          float: left;
-          margin: 3px 5px 0px 0px; }
-        .body .debug_window.debug_form .top_panel .control-element input[type=text], .body .debug_window.debug_form .top_panel .control-element input[type=button] {
-          margin: -2px 5px 0px 0px;
-          height: 17px;
-          width: 40px;
-          text-align: center; }
-        .body .debug_window.debug_form .top_panel .control-element input[type=button] {
-          padding: 0px;
-          font-size: 12px;
-          width: 15px;
-          height: 15px;
-          border: none;
-          text-indent: -9999px;
-          margin-top: 1px;
-          cursor: pointer;
-          background: transparent url('../images/statusbarButtonGlyphs.png'); }
-          .body .debug_window.debug_form .top_panel .control-element input[type=button][name=debug_model_run] {
-            background-position: -72px -52px; }
-          .body .debug_window.debug_form .top_panel .control-element input[type=button]#backend_config {
-            background-position: -168px -100px;
-            float: right; }
-          .body .debug_window.debug_form .top_panel .control-element input[type=button]#reload_page {
-            float: right;
-            background-position: -330px -77px; }
-          .body .debug_window.debug_form .top_panel .control-element input[type=button]#clear_all {
-            background-position: -204px -77px; }
-        .body .debug_window.debug_form .top_panel .control-element input#clear_all:focus, .body .debug_window.debug_form .top_panel .control-element input#backend_config:focus, .body .debug_window.debug_form .top_panel .control-element input#reload_page:focus, .body .debug_window.debug_form .top_panel .control-element input[name=debug_model_run]:focus {
-          outline: none; }
-        .body .debug_window.debug_form .top_panel .control-element input[name=debug_model] {
-          width: 165px;
-          text-align: left; }
   .body .toolbar .button-graphic {
     margin-left: 10px; }
     .body .toolbar .button-graphic:first-child {
