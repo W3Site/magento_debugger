@@ -118,6 +118,7 @@ header {
         padding-top: 58px; }
         .body .debug_window.debug_form .panel-body .tab {
           display: none;
+          /* Tab model */
           /* Common tab table */
           /* Mail list */ }
           .body .debug_window.debug_form .panel-body .tab table {
@@ -182,15 +183,22 @@ header {
                 .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td .profiler_name {
                   width: 1px;
                   white-space: nowrap; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-cron.active {
-            display: table; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div {
-            display: table-row; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div > div {
-              display: table-cell; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-cron .top-panel {
-            display: table-cell;
-            height: 16px; }
+          .body .debug_window.debug_form .panel-body .tab.tab-cron .top-panel {
+            height: top-panel; }
+          .body .debug_window.debug_form .panel-body .tab.tab-cron .tab-cron-content-wrapper {
+            overflow: auto; }
+          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-cron {
+            width: 100%;
+            height: 100%; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-cron.active {
+              display: table; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div {
+              display: table-row; }
+              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div > div {
+                display: table-cell; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-cron .top-panel {
+              display: table-cell;
+              height: 16px; }
           .body .debug_window.debug_form .panel-body .tab.tab-mail {
             width: 100%;
             height: 100%; }

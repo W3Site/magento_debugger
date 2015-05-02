@@ -170,29 +170,6 @@ tools = function(){
                 _this.setCookie('magento_debug_mysql_trace', 'no', _this.getRootPath(_data.tab.url));
             }
         });
-        
-        // Debug model method
-        if (_data.cookies.magento_debug_model){
-            _this.jQuery('input[name=debug_model]').val(_data.cookies.magento_debug_model);
-        }
-        
-        _this.jQuery('input[name=debug_model]').on('keyup', function(){
-            _this.setCookie('magento_debug_model', jQuery('input[name=debug_model]').val(), _this.getRootPath(_data.tab.url));
-        });
-        
-        _this.jQuery('input[name=debug_model_run]').on('click', function(){
-            var value = _this.jQuery('input[name=debug_model]').val();
-            var host = _this.getRootPath(_data.tab.url);
-            
-            var params = {
-                'host':_this.getRootPath(_data.tab.url)
-            };
-            
-            var jsonString = jQuery.stringify(params);
-            var link = 'window.html?magento_debug=model&magento_debug_model_method=' + value + '#' + jQuery.base64.encode(jsonString);
-            
-            _this.openChromeWindow(link, 'popup');
-        });
     }
     
     this.showWindowUpdate = function(options){
@@ -203,7 +180,6 @@ tools = function(){
         _this.jQuery('.debug_update .backend_version').html(backendVersion);
         _this.jQuery('.debug_update .download_extension_link').attr('href', backend_extension_link);
         
-        debugger;
         _this.jQuery('.debug_update .update-message').removeClass('active');
         switch(options.error_code){
             case(1):
@@ -299,8 +275,8 @@ tools = function(){
         
         _developerTabModelInitialised = true;
         
-        //var toolsMail = new tools_profiler;
-        //toolsMail.init(_this);
+        var toolsJs = new tools_model;
+        toolsJs.init(_this);
     }
     
     this.developerLink = function(link, item){
