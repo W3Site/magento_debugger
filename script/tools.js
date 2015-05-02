@@ -189,9 +189,11 @@ tools = function(){
     
     this.showWindowUpdate = function(options){
         var version = chrome.runtime.getManifest().version;
+        var backendVersionRequired = options.required;
         var backendVersion = options.backend.version;
+        
         var backend_extension_link = 'https://github.com/w3site/magento_debugger_backend/archive/version-' + version + '.zip';
-        _this.jQuery('.debug_update .current_version').html(version);
+        _this.jQuery('.debug_update .required_version').html(backendVersionRequired);
         _this.jQuery('.debug_update .backend_version').html(backendVersion);
         _this.jQuery('.debug_update .download_extension_link').attr('href', backend_extension_link);
         
@@ -210,9 +212,12 @@ tools = function(){
         _this.jQuery('.debug_update').addClass('active');
     }
     
-    this.showWindowInstallation = function(){
+    this.showWindowInstallation = function(options){
         var version = chrome.runtime.getManifest().version;
-        var backend_extension_link = 'https://github.com/w3site/magento_debugger_backend/archive/version-' + version + '.zip';
+        var backendVersionRequired = options.required;
+        debugger;
+        var backend_extension_link = 'https://github.com/w3site/magento_debugger_backend/archive/version-' + backendVersionRequired + '.zip';
+        _this.jQuery('.debug_install .required_version').html(backendVersionRequired);
         _this.jQuery('.debug_install .current_version').html(version);
         _this.jQuery('.debug_install .download_extension_link').attr('href', backend_extension_link);
         _this.jQuery('.debug_window').removeClass('active');
@@ -324,7 +329,7 @@ tools = function(){
                     _this.showWindowUnavaliable();
                     break;
                 case('notinstalled'):
-                    _this.showWindowInstallation();
+                    _this.showWindowInstallation(data);
                     break;
                 case('avaliable'):
                     _this.showWindowDebugger(data);

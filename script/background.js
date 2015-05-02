@@ -65,13 +65,16 @@ var background = new function(){
             xhr.onloadend = function() {
                 if (xhr.status != 200) {
                     returnData.state = 'notinstalled';
+                    returnData.required = _backendVersion;
                     callback(returnData);
                 } else {
                     try {
                         returnData.backend = JSON.parse(xhr.responseText);
+                        returnData.required = _backendVersion;
                     }
                     catch (exception_var) {
                         returnData.state = 'notinstalled';
+                        returnData.required = _backendVersion;
                         callback(returnData);
                     }
                     finally {
