@@ -21,6 +21,9 @@ tools = function(){
     }
     
     this.ajax = function(data, done){
+        if (typeof done == 'undefined'){
+            done = function(){};
+        }
         chrome.extension.sendRequest({
             'method' : 'ajax',
             'data'   : data

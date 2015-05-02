@@ -183,20 +183,26 @@ header {
                 .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td .profiler_name {
                   width: 1px;
                   white-space: nowrap; }
-          .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel {
+          .body .debug_window.debug_form .panel-body .tab.tab-sql .stop_following {
+            background-position: -103px -53px; }
+          .body .debug_window.debug_form .panel-body .tab.tab-sql .start_following {
+            background-position: -72px -52px; }
+          .body .debug_window.debug_form .panel-body .tab.tab-sql .content_clear {
+            background-position: -72px -77px; }
+          .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-sql .top-panel {
             height: top-panel; }
-          .body .debug_window.debug_form .panel-body .tab.tab-model .tab-model-content-wrapper {
+          .body .debug_window.debug_form .panel-body .tab.tab-model .tab-content-wrapper, .body .debug_window.debug_form .panel-body .tab.tab-sql .tab-content-wrapper {
             overflow: auto; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-model {
+          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-model, .body .debug_window.debug_form .panel-body .tab.tab-sql {
             width: 100%;
             height: 100%; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-model.active {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-model.active, .body .debug_window.debug_form .panel-body .tab.tab-sql.active {
               display: table; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div, .body .debug_window.debug_form .panel-body .tab.tab-sql > div {
               display: table-row; }
-              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div > div {
+              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div > div, .body .debug_window.debug_form .panel-body .tab.tab-sql > div > div {
                 display: table-cell; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-sql .top-panel {
               display: table-cell;
               height: 20px; }
           .body .debug_window.debug_form .panel-body .tab.tab-mail {
@@ -248,6 +254,6 @@ header {
       background-position: -73px -5px; }
   .body .long-table-wrapper {
     height: 0px;
-    width: auto; }
+    width: 0px; }
   .body .template {
     display: none; }

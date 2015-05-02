@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-var tools_mysql = function(){
+var tools_sql = function(){
     var _this = this;
     var _extensionData = null;
     var _followMessages = false;
@@ -13,16 +13,16 @@ var tools_mysql = function(){
     this.init = function(parent){
         _parent = parent;
         _data = parent.getData();
-        _parent.jQuery('#stop_following').on('click', function(){
+        _parent.jQuery('.tab-sql .stop_following').on('click', function(){
             _this.followMessagesStop();
         })
         
-        _parent.jQuery('#start_following').on('click', function(){
+        _parent.jQuery('.tab-sql .start_following').on('click', function(){
             _this.followMessagesStart();
         })
         
-        _parent.jQuery('#mysql_content_clear_debug').on('click', function(){
-            jQuery.ajax({
+        _parent.jQuery('.tab-sql .content_clear').on('click', function(){
+            _parent.ajax({
                 url: _parent.getRootPath(_data.tab.url) + '/?magento_debug=mysql&magento_debug_action=clearmessages'
             });
         })
@@ -32,14 +32,14 @@ var tools_mysql = function(){
     }
     
     this.followMessagesStart = function(){
-        _parent.jQuery('#stop_following').show();
-        _parent.jQuery('#start_following').hide();
+        _parent.jQuery('.tab-sql .stop_following').show();
+        _parent.jQuery('.tab-sql .start_following').hide();
         _followMessages = true;
     }
     
     this.followMessagesStop = function(){
-        _parent.jQuery('#stop_following').hide();
-        _parent.jQuery('#start_following').show();
+        _parent.jQuery('.tab-sql .stop_following').hide();
+        _parent.jQuery('.tab-sql .start_following').show();
         _followMessages = false;
     }
     
@@ -53,8 +53,7 @@ var tools_mysql = function(){
                 var dataLength = data.length;
                 _parent.jQuery('#mysql-content-list').text(data);
                 if (dataLength != _dataLength){
-                    //jQuery(window).scrollTop(jQuery(document).height());
-                    _parent.jQuery('#mysql-content-list').scrollTop(
+                    _parent.jQuery('.tab-sql .tab-content-wrapper').scrollTop(
                         _parent.jQuery('#mysql-content-list').height()
                     );
                 }
