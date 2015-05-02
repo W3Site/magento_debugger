@@ -51,7 +51,7 @@ header {
     float: left;
     margin: 0px 0px 0px 5px;
     padding-left: 5px;
-    height: 13px; }
+    height: 25px; }
     .body .control-element > *:first-child {
       margin-right: 5px; }
     .body .control-element > * {
@@ -114,8 +114,8 @@ header {
       height: 100%; }
       .body .debug_window.debug_form .panel-body {
         height: 100%;
-        margin-top: -58px;
-        padding-top: 58px; }
+        margin-top: -32px;
+        padding-top: 37px; }
         .body .debug_window.debug_form .panel-body .tab {
           display: none;
           /* Tab model */
@@ -183,22 +183,22 @@ header {
                 .body .debug_window.debug_form .panel-body .tab.tab-profiler .main-sidebar #profiler-data td .profiler_name {
                   width: 1px;
                   white-space: nowrap; }
-          .body .debug_window.debug_form .panel-body .tab.tab-cron .top-panel {
+          .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel {
             height: top-panel; }
-          .body .debug_window.debug_form .panel-body .tab.tab-cron .tab-cron-content-wrapper {
+          .body .debug_window.debug_form .panel-body .tab.tab-model .tab-model-content-wrapper {
             overflow: auto; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-cron {
+          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-model {
             width: 100%;
             height: 100%; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-cron.active {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-model.active {
               display: table; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div {
               display: table-row; }
-              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-cron > div > div {
+              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div > div {
                 display: table-cell; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-cron .top-panel {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel {
               display: table-cell;
-              height: 16px; }
+              height: 20px; }
           .body .debug_window.debug_form .panel-body .tab.tab-mail {
             width: 100%;
             height: 100%; }
@@ -221,7 +221,7 @@ header {
             text-decoration: none;
             padding: 3px 15px;
             margin: 0px; }
-            .body .debug_window.debug_form .top_panel .control-tabs a:active, .body .debug_window.debug_form .top_panel .control-tabs a:hover {
+            .body .debug_window.debug_form .top_panel .control-tabs a:active, .body .debug_window.debug_form .top_panel .control-tabs a:hover, .body .debug_window.debug_form .top_panel .control-tabs a.active {
               background-color: #eee;
               border-radius: 8px; }
   .body .toolbar .button-graphic {

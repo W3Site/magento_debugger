@@ -225,75 +225,43 @@ tools = function(){
         });
     }
     
-    this.developerTabSql = function(item){
-        _this.jQuery('.panel-body .tab').removeClass('active');
-        _this.jQuery('.panel-body .tab.tab-sql').addClass('active');
-        
-        var toolsSql = new tools_sql;
-        toolsSql.init(_this);
-    }
+    var _developerTabInitialised = {};
     
-    var _developerTabProfilerInitialised = false;
-    var _developerTabMailInitialised = false;
-    var _developerTabModelInitialised = false;
-    
-    this.developerTabMail = function(item){
+    this.developerTab = function(tab, item){
         _this.jQuery('.panel-body .tab').removeClass('active');
-        _this.jQuery('.panel-body .tab.tab-mail').addClass('active');
+        _this.jQuery('.panel-body .tab.tab-' + tab).addClass('active');
+        jQuery(item).parent().find('> a').removeClass('active');
+        jQuery(item).addClass('active');
         
-        if (_developerTabMailInitialised){
+        if (_developerTabInitialised[tab] == true){
             return;
         }
+        _developerTabInitialised[tab] = true;
         
-        _developerTabMailInitialised = true;
-        debugger;
-        var toolsMail = new tools_mail;
-        toolsMail.init(_this);
-    }
-    
-    this.developerTabProfiler = function(item){
-        _this.jQuery('.panel-body .tab').removeClass('active');
-        _this.jQuery('.panel-body .tab.tab-profiler').addClass('active');
+        var toolsJs = null;
         
-        if (_developerTabProfilerInitialised){
-            return;
+        switch(tab){
+            case('mail'):
+                var toolsJs = new tools_mail;
+                break;
+            case('profiler'):
+                var toolsJs = new tools_profiler;
+                break;
+            case('model'):
+                var toolsJs = new tools_model;
+                break;
+            case('sql'):
+                var toolsJs = new tools_sql;
+                break;
         }
         
-        _developerTabProfilerInitialised = true;
-        
-        var toolsMail = new tools_profiler;
-        toolsMail.init(_this);
-    }
-    
-    this.developerTabModel = function(item){
-        _this.jQuery('.panel-body .tab').removeClass('active');
-        _this.jQuery('.panel-body .tab.tab-cron').addClass('active');
-        
-        if (_developerTabModelInitialised){
-            return;
-        }
-        
-        _developerTabModelInitialised = true;
-        
-        var toolsJs = new tools_model;
-        toolsJs.init(_this);
+        if (toolsJs){
+            toolsJs.init(_this);
+        } 
     }
     
     this.developerLink = function(link, item){
-        switch(link){
-            case('sql'):
-                _this.developerTabSql(item)
-            break;
-            case('mail'):
-                _this.developerTabMail(item)
-            break;
-            case('profiler'):
-                _this.developerTabProfiler(item)
-            break;
-            case('model'):
-                _this.developerTabModel(item)
-            break;
-        }
+        _this.developerTab(link, item)
     }
     
     this.initTags = function(devWindow){

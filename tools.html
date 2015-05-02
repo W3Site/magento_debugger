@@ -51,39 +51,15 @@
                 </div>
                 <div class="debug_window debug_form">
                     <div class="top_panel">
-                        <div class="control-element">
-                            <input class="checkbox-option" type="checkbox" id="debug_blocks" />
-                            <span class="text">Blocks</span>
-                        </div>
-                        <div class="control-element">
-                            <input class="checkbox-option" name="debug_password_admin" title="Allow all passwords for admin panel" type="checkbox" />
-                            <span class="text">Password</span>
-                        </div>
-                        <div class="control-element">
-                            <span class="text">DB queries:</span>
-                            <input class="checkbox-option" name="debug_mysql" type="radio" value="no" />
-                            <span class="text">
-                                Disable
-                            </span>
-                            <input class="checkbox-option" name="debug_mysql" type="radio" value="all" />
-                            <span class="text">
-                                All
-                            </span>
-                            <input class="checkbox-option" name="debug_mysql" type="radio" value="value" />
-                            <span class="text">
-                                By time
-                            </span>
-                            <input type="text" name="debug_mysql_value" value="0.05" />
-                            <span class="text">Trace</span>
-                            <input class="checkbox-option" type="checkbox" id="debug_mysql_trace" />
-                        </div>
-                    </div>
-                    <div class="top_panel">
                         <div class="control-element control-tabs">
-                            <a linktype="developer" extensionwindow="yes" href="mail" value="Mail list">Mails</a>
-                            <a linktype="developer" extensionwindow="yes" href="profiler" value="Profiler">Profiler</a>
-                            <a linktype="developer" extensionwindow="yes" href="model" value="Cron & Model">Cron & Models</a>
-                            <a linktype="popup" extensionwindow="yes" href="/window.html?magento_debug=mysql" value="MySQL debug">SQL</a>
+                            <!-- 
+                            <a linktype="developer" extensionwindow="yes" href="block" title="Blocks debug">Blocks</a>
+                            -->
+                            <a linktype="popup" extensionwindow="yes" href="/window.html?magento_debug=mysql" title="MySQL debug">SQL</a>
+                            <a linktype="developer" extensionwindow="yes" href="mail" title="Mail list">Mails</a>
+                            <a linktype="developer" extensionwindow="yes" href="profiler" title="Profiler">Profiler</a>
+                            <a linktype="developer" extensionwindow="yes" href="model" title="Cron & Model">Cron & Models</a>
+                            <a linktype="developer" extensionwindow="yes" href="more" title="More tools">More</a>
                             <!-- 
                             <a class="text" linktype="developer" extensionwindow="yes" href="sql" value="MySQL debug">SQL Queries</a>
                             -->
@@ -111,7 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab tab-cron">
+                        <div class="tab tab-model">
                             <div>
                                 <div class="top-panel">
                                     <div class="control-element">
@@ -122,7 +98,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="tab-cron-content-wrapper">
+                                <div class="tab-model-content-wrapper">
                                     <div class="long-table-wrapper">
                                         <pre id="model-content">...</pre>
                                     </div>
@@ -184,6 +160,38 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab tab-more">
+                            <div class="control-element">
+                                <input class="checkbox-option" type="checkbox" id="debug_blocks" />
+                                <span class="text">Blocks</span>
+                            </div>
+                            <div class="control-element">
+                                <input class="checkbox-option" name="debug_password_admin" title="Allow all passwords for admin panel" type="checkbox" />
+                                <span class="text">Password</span>
+                            </div>
+                            <div class="control-element">
+                                <span class="text">DB queries:</span>
+                                <input class="checkbox-option" name="debug_mysql" type="radio" value="no" />
+                                <span class="text">
+                                    Disable
+                                </span>
+                                <input class="checkbox-option" name="debug_mysql" type="radio" value="all" />
+                                <span class="text">
+                                    All
+                                </span>
+                                <input class="checkbox-option" name="debug_mysql" type="radio" value="value" />
+                                <span class="text">
+                                    By time
+                                </span>
+                                <input type="text" name="debug_mysql_value" value="0.05" />
+                                <span class="text">Trace</span>
+                                <input class="checkbox-option" type="checkbox" id="debug_mysql_trace" />
+                            </div>
+
+                        </div>
+                        <div class="tab tab-block">
+                            block config
                         </div>
                         <div class="tab tab-mail">
                             <div>
