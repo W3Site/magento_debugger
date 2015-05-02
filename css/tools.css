@@ -32,7 +32,6 @@ header {
 .body {
   margin-left: 85px;
   height: 100%;
-  overflow-y: scroll;
   font-family: Ubuntu, Arial, sans-serif; }
   .body .debug_window_wrapper {
     display: table;
@@ -93,7 +92,8 @@ header {
         float: right;
         background-position: -330px -77px; }
       .body .control-element input[type=button]#clear_all {
-        background-position: -204px -77px; }
+        margin-top: 3px;
+        background-position: -73px -5px; }
     .body .control-element input#clear_all:focus, .body .control-element input#backend_config:focus, .body .control-element input#reload_page:focus, .body .control-element input[name=debug_model_run]:focus {
       outline: none; }
     .body .control-element input[name=debug_model] {
@@ -114,8 +114,8 @@ header {
       height: 100%; }
       .body .debug_window.debug_form .panel-body {
         height: 100%;
-        margin-top: -32px;
-        padding-top: 37px; }
+        margin-top: -33px;
+        padding-top: 38px; }
         .body .debug_window.debug_form .panel-body .tab {
           display: none;
           /* Tab model */
@@ -213,23 +213,31 @@ header {
               overflow: auto; }
             .body .debug_window.debug_form .panel-body .tab.tab-mail #maillist-content-table {
               width: 100%; }
+            .body .debug_window.debug_form .panel-body .tab.tab-mail .long-table-wrapper {
+              width: auto; }
           .body .debug_window.debug_form .panel-body .tab.active {
             display: block; }
       .body .debug_window.debug_form .top_panel {
         font-size: 12px;
         height: 20px;
-        margin: 6px 0px 6px 0px;
-        min-width: 660px; }
+        padding: 6px 0px 6px 35px;
+        margin-left: -35px;
+        min-width: 660px;
+        background-color: #eee;
+        border-bottom: 1px solid #a3a3a3; }
         .body .debug_window.debug_form .top_panel .control-tabs {
-          padding-top: 3px; }
+          padding-top: 0px; }
           .body .debug_window.debug_form .top_panel .control-tabs a {
             color: #000;
             text-decoration: none;
-            padding: 3px 15px;
-            margin: 0px; }
+            padding: 3px 10px;
+            margin: 0px 5px 0px 0px; }
             .body .debug_window.debug_form .top_panel .control-tabs a:active, .body .debug_window.debug_form .top_panel .control-tabs a:hover, .body .debug_window.debug_form .top_panel .control-tabs a.active {
-              background-color: #eee;
               border-radius: 8px; }
+            .body .debug_window.debug_form .top_panel .control-tabs a:active, .body .debug_window.debug_form .top_panel .control-tabs a:hover {
+              background: rgba(0, 0, 0, 0.2); }
+            .body .debug_window.debug_form .top_panel .control-tabs a.active {
+              background: rgba(0, 0, 0, 0.3); }
   .body .toolbar .button-graphic {
     margin-left: 10px; }
     .body .toolbar .button-graphic:first-child {

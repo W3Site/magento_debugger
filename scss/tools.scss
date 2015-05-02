@@ -44,7 +44,6 @@ header{
 .body{
   margin-left: 85px;
   height: 100%;
-  overflow-y: scroll;
   font-family: Ubuntu, Arial, sans-serif;
   
   .debug_window_wrapper{
@@ -134,7 +133,8 @@ header{
       }
       
       &#clear_all{
-        background-position: -204px -77px;
+        margin-top: 3px;
+        background-position: -73px -5px;
       }
     }
     
@@ -175,8 +175,8 @@ header{
       
       .panel-body{
         height: 100%;
-        margin-top: -32px;
-        padding-top: 37px;
+        margin-top: -33px;
+        padding-top: 38px;
         
         .tab{
           display: none;
@@ -352,6 +352,10 @@ header{
             #maillist-content-table{
               width:100%;
             }
+            
+            .long-table-wrapper{
+              width: auto;
+            }
           }
           
           &.active{
@@ -363,21 +367,31 @@ header{
       .top_panel{
         font-size: 12px;
         height: 20px;
-        margin: 6px 0px 6px 0px;
+        padding: 6px 0px 6px 35px;
+        margin-left: -35px;
         min-width: 660px;
+        background-color: #eee;
+        border-bottom: 1px solid rgb(163, 163, 163);
         
         .control-tabs{
-          padding-top: 3px;
+          padding-top: 0px;
           
           a{
             color: #000;
             text-decoration: none;
-            padding: 3px 15px;
-            margin: 0px;
+            padding: 3px 10px;
+            margin: 0px 5px 0px 0px;
             
             &:active, &:hover, &.active{
-              background-color: #eee;
               border-radius: 8px;
+            }
+            
+            &:active, &:hover{
+              background: rgba(0, 0, 0, 0.2);
+            }
+            
+            &.active{
+              background: rgba(0, 0, 0, 0.3);
             }
           }
         }

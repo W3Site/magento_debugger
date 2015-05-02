@@ -52,9 +52,7 @@
                 <div class="debug_window debug_form">
                     <div class="top_panel">
                         <div class="control-element control-tabs">
-                            <!-- 
                             <a linktype="developer" extensionwindow="yes" href="block" title="Blocks debug">Blocks</a>
-                            -->
                             <a linktype="developer" extensionwindow="yes" href="sql" title="MySQL debug">SQL</a>
                             <a linktype="developer" extensionwindow="yes" href="mail" title="Mail list">Mails</a>
                             <a linktype="developer" extensionwindow="yes" href="profiler" title="Profiler">Profiler</a>
@@ -160,16 +158,15 @@
                         </div>
                         <div class="tab tab-more">
                             <div class="control-element">
-                                <input class="checkbox-option" type="checkbox" id="debug_blocks" />
-                                <span class="text">Blocks</span>
-                            </div>
-                            <div class="control-element">
                                 <input class="checkbox-option" name="debug_password_admin" title="Allow all passwords for admin panel" type="checkbox" />
                                 <span class="text">Password</span>
                             </div>
                         </div>
                         <div class="tab tab-block">
-                            block config
+                            <div class="control-element">
+                                <input class="checkbox-option" type="checkbox" id="debug_blocks" />
+                                <span class="text">Blocks</span>
+                            </div>
                         </div>
                         <div class="tab tab-mail">
                             <div>
