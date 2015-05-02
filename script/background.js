@@ -1,6 +1,6 @@
 var background = new function(){
     var _this = this;
-    var _backendVersion = '0.1.1'
+    var _backendVersion = '0.2.2'
     
     this.getRootPath = function(url){
         var match = url.match(/.*:\/\/[^\/]*/i);
