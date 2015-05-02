@@ -315,6 +315,10 @@ header{
               width: 100%;
             }
             
+            #block-content-table-wrapper{
+              overflow: auto;
+            }
+            
             .block-template-file{
               word-wrap: break-word;
               word-break: break-word;

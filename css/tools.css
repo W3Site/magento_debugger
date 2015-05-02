@@ -193,6 +193,8 @@ header {
             width: auto; }
           .body .debug_window.debug_form .panel-body .tab.tab-block #block-data {
             width: 100%; }
+          .body .debug_window.debug_form .panel-body .tab.tab-block #block-content-table-wrapper {
+            overflow: auto; }
           .body .debug_window.debug_form .panel-body .tab.tab-block .block-template-file {
             word-wrap: break-word;
             word-break: break-word; }
