@@ -189,20 +189,27 @@ header {
             background-position: -72px -52px; }
           .body .debug_window.debug_form .panel-body .tab.tab-sql .content_clear {
             background-position: -72px -77px; }
+          .body .debug_window.debug_form .panel-body .tab.tab-block .long-table-wrapper {
+            width: auto; }
+          .body .debug_window.debug_form .panel-body .tab.tab-block #block-data {
+            width: 100%; }
+          .body .debug_window.debug_form .panel-body .tab.tab-block .block-template-file {
+            word-wrap: break-word;
+            word-break: break-word; }
           .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-sql .top-panel {
             height: top-panel; }
           .body .debug_window.debug_form .panel-body .tab.tab-model .tab-content-wrapper, .body .debug_window.debug_form .panel-body .tab.tab-sql .tab-content-wrapper {
             overflow: auto; }
-          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-model, .body .debug_window.debug_form .panel-body .tab.tab-sql {
+          .body .debug_window.debug_form .panel-body .tab.tab-mail, .body .debug_window.debug_form .panel-body .tab.tab-profiler, .body .debug_window.debug_form .panel-body .tab.tab-model, .body .debug_window.debug_form .panel-body .tab.tab-sql, .body .debug_window.debug_form .panel-body .tab.tab-block {
             width: 100%;
             height: 100%; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-model.active, .body .debug_window.debug_form .panel-body .tab.tab-sql.active {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail.active, .body .debug_window.debug_form .panel-body .tab.tab-profiler.active, .body .debug_window.debug_form .panel-body .tab.tab-model.active, .body .debug_window.debug_form .panel-body .tab.tab-sql.active, .body .debug_window.debug_form .panel-body .tab.tab-block.active {
               display: table; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div, .body .debug_window.debug_form .panel-body .tab.tab-sql > div {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div, .body .debug_window.debug_form .panel-body .tab.tab-sql > div, .body .debug_window.debug_form .panel-body .tab.tab-block > div {
               display: table-row; }
-              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div > div, .body .debug_window.debug_form .panel-body .tab.tab-sql > div > div {
+              .body .debug_window.debug_form .panel-body .tab.tab-mail > div > div, .body .debug_window.debug_form .panel-body .tab.tab-profiler > div > div, .body .debug_window.debug_form .panel-body .tab.tab-model > div > div, .body .debug_window.debug_form .panel-body .tab.tab-sql > div > div, .body .debug_window.debug_form .panel-body .tab.tab-block > div > div {
                 display: table-cell; }
-            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-sql .top-panel {
+            .body .debug_window.debug_form .panel-body .tab.tab-mail .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-profiler .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-model .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-sql .top-panel, .body .debug_window.debug_form .panel-body .tab.tab-block .top-panel {
               display: table-cell;
               height: 20px; }
           .body .debug_window.debug_form .panel-body .tab.tab-mail {

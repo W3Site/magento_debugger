@@ -8,11 +8,18 @@ var tools_block = function(){
     var _data = null;
     var _blocks = {};
     var _blockInfo = new Array();
+    var _templates = {};
     
     this.init = function(parent){
         _parent = parent;
+        debugger;
+        var listTemplate = _parent.jQuery('#block-content-table-wrapper');
+        var listItemTemplate = _parent.jQuery('#block-content-table-wrapper .template');
+        _templates.listTable = listTemplate.html();
+        _templates.listItem = listItemTemplate.clone();
+
         _data = parent.getData();
-        
+
         _parent.getTabData(_data.tab.id, {'action' : 'gethtml'}, _this.parseBlocks)
     }
     
@@ -20,18 +27,24 @@ var tools_block = function(){
         var lastPosition = 0;
         var newPosition = 0;
         var string = '';
-        var blockInfoItem = new Object();
         var blockInfoParese = new Array();
         var tmp;
         
         while (lastPosition != -1){
+            var blockInfoItem = new Object();
             newPosition = data.indexOf('<!-- + Block ', lastPosition);
+            
+            if (newPosition == -1){
+                break;
+            }
+            
             endPosition = data.indexOf('-->', newPosition);
             string = data.substring(newPosition + 7, endPosition);
             
             blockInfoParese = string.split("\n");
             for(key in blockInfoParese){
                 tmp = blockInfoParese[key].trim();
+                
                 if (tmp.substring(0, 6) == 'Block '){
                     blockInfoItem.id = tmp.substring(6);
                 }
@@ -56,6 +69,33 @@ var tools_block = function(){
             }
         }
         
+        _parent.jQuery('#block-content-table-wrapper').html(_templates.listTable);
+        
+        boolTrigger = false;
+        jQuery(_blockInfo).each(function(key, value){
+            var listItem = _templates.listItem.clone();
+            jQuery(listItem).removeClass('template');
+            jQuery(listItem).find('.block-identifier').text(value.id);
+            jQuery(listItem).find('.block-class-name').text(value.className);
+            jQuery(listItem).find('.block-name-in-layout').text(value.layoutName);
+            jQuery(listItem).find('.block-template-file').text(value.templateFile);
+            
+            if (boolTrigger){
+                jQuery(listItem).addClass('gray_row');
+            }
+            
+            var insertAfter = _parent.jQuery('#block-data .template');
+            debugger;
+            jQuery(listItem).insertAfter(insertAfter);
+            
+            if (boolTrigger){
+                boolTrigger = false;
+            }
+            else{
+                boolTrigger = true;
+            }
+        });
+
         debugger;
     }
 }

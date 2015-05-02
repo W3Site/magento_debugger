@@ -36,7 +36,6 @@ var background = new function(){
     }
     
     this.getTabData = function(request, sender, callback){
-    	debugger;
         chrome.tabs.sendMessage(request.tabId, request.data, callback);
     }
     
