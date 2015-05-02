@@ -35,6 +35,11 @@ var background = new function(){
         }
     }
     
+    this.getTabData = function(request, sender, callback){
+    	debugger;
+        chrome.tabs.sendMessage(request.tabId, request.data, callback);
+    }
+    
     this.collectData = function(request, sender, callback){
         var returnData = {
             state: false,
@@ -42,7 +47,6 @@ var background = new function(){
         };
         
         chrome.tabs.query({'active' : true}, function(tab){
-            debugger;
             tab = tab[0];
             returnData.tab = tab;
             
@@ -114,13 +118,15 @@ var background = new function(){
     
     this.init = function(){
         chrome.extension.onRequest.addListener(function(request, sender, callback) {
-            debugger;
             switch(request.method){
                 case('openChromeWindow'):
                     _this.openChromeWindow(request.link, request.type);
                 break;
                 case('collectData'):
                     _this.collectData(request, sender, callback);
+                break;
+                case('getTabData'):
+                    _this.getTabData(request, sender, callback);
                 break;
                 case('reloadChromeWindow'):
                     _this.reloadChromeWindow(request, sender, callback);

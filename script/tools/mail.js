@@ -84,7 +84,6 @@ var tools_mail = function(){
                 _this.showList(_loadedList);
             });
         });
-
     }
     
     this.init = function(parent){

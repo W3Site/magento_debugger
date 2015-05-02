@@ -30,6 +30,18 @@ tools = function(){
         }, done);
     }
     
+    this.getTabData = function(tabId, data, callback){
+        if (typeof callback == 'undefined'){
+            callback = function(){};
+        }
+        
+        chrome.extension.sendRequest({
+            'method' : 'getTabData',
+            'data'   : data,
+            'tabId'  : tabId
+        }, callback);
+    }
+    
     this.setCookie = function(key, value, url, path){
         if (typeof path == 'undefined'){
             path = '/';
@@ -255,6 +267,9 @@ tools = function(){
                 break;
             case('sql'):
                 var toolsJs = new tools_sql;
+                break;
+            case('block'):
+                var toolsJs = new tools_block;
                 break;
         }
         

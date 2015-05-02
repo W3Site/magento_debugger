@@ -15,6 +15,14 @@
   
   "devtools_page": "init.html",
   
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": [],
+      "js": ["script/content.js"]
+    }
+  ],
+  
   "background": {
     "scripts": ["script/background.js"]
   },
