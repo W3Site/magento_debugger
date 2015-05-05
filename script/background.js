@@ -78,7 +78,7 @@ var background = new function(){
                         callback(returnData);
                     }
                     finally {
-                        if (typeof returnData.backend.version != 'string'){
+                        if (typeof returnData.backend == 'undefined'){
                             returnData.state = 'notinstalled';
                             callback(returnData);
                         }
@@ -118,9 +118,27 @@ var background = new function(){
         }
     }
     
+    this.mesageDispatcher = function(msg, sender, sendResponse){
+        if (!determineReloadCallback){
+           return;
+        }
+        
+        determineReloadCallback(true);
+    }
+    
+    var determineReloadCallback = null;
+    this.determineReload = function(request, sender, callback){
+        determineReloadCallback = callback;
+    }
+    
     this.init = function(){
+        chrome.runtime.onMessage.addListener(_this.mesageDispatcher);
+        
         chrome.extension.onRequest.addListener(function(request, sender, callback) {
             switch(request.method){
+                case('determineReload'):
+                    _this.determineReload(request, sender, callback);
+                break;
                 case('openChromeWindow'):
                     _this.openChromeWindow(request.link, request.type);
                 break;

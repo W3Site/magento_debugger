@@ -12,7 +12,6 @@ var tools_block = function(){
     
     this.init = function(parent){
         _parent = parent;
-        debugger;
         var listTemplate = _parent.jQuery('#block-content-table-wrapper');
         var listItemTemplate = _parent.jQuery('#block-content-table-wrapper .template');
         _templates.listTable = listTemplate.html();
@@ -21,6 +20,17 @@ var tools_block = function(){
         _data = parent.getData();
 
         _parent.getTabData(_data.tab.id, {'action' : 'gethtml'}, _this.parseBlocks)
+        
+        _this.determineReload();
+    }
+    
+    this.determineReload = function(){
+        chrome.extension.sendRequest({
+            'method' : 'determineReload'
+        }, function(){
+            _this.determineReload();
+            _parent.getTabData(_data.tab.id, {'action' : 'gethtml'}, _this.parseBlocks)
+        });
     }
     
     this.parseBlocks = function(data){
@@ -29,6 +39,9 @@ var tools_block = function(){
         var string = '';
         var blockInfoParese = new Array();
         var tmp;
+        debugger;
+        
+        _blockInfo = new Array();
         
         while (lastPosition != -1){
             var blockInfoItem = new Object();
@@ -85,7 +98,6 @@ var tools_block = function(){
             }
             
             var insertAfter = _parent.jQuery('#block-data .template');
-            debugger;
             jQuery(listItem).insertAfter(insertAfter);
             
             if (boolTrigger){
@@ -95,7 +107,5 @@ var tools_block = function(){
                 boolTrigger = true;
             }
         });
-
-        debugger;
     }
 }
