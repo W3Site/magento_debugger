@@ -215,13 +215,19 @@ tools = function(){
     this.showWindowInstallation = function(options){
         var version = chrome.runtime.getManifest().version;
         var backendVersionRequired = options.required;
-        debugger;
+        
         var backend_extension_link = 'https://github.com/w3site/magento_debugger_backend/archive/version-' + backendVersionRequired + '.zip';
         _this.jQuery('.debug_install .required_version').html(backendVersionRequired);
         _this.jQuery('.debug_install .current_version').html(version);
         _this.jQuery('.debug_install .download_extension_link').attr('href', backend_extension_link);
         _this.jQuery('.debug_window').removeClass('active');
         _this.jQuery('.debug_install').addClass('active');
+        
+        chrome.extension.sendRequest({
+            'method' : 'determineReload'
+        }, function(){
+            _this.collectData(_this.initTools);
+        });
     }
     
     this.showWindowUnavaliable = function(){
@@ -317,28 +323,30 @@ tools = function(){
         });
     }
     
+    this.initTools = function(data){
+        _data = data;
+        switch (data.state){
+            case('unavaliable'):
+                _this.showWindowUnavaliable();
+                break;
+            case('notinstalled'):
+                _this.showWindowInstallation(data);
+                break;
+            case('avaliable'):
+                _this.showWindowDebugger(data);
+                break;
+            case('update'):
+                _this.showWindowUpdate(data);
+                break;
+        }
+    };
+    
     this.init = function(devWindow){
         _devWindow = devWindow;
         
         _this.initTags(devWindow);
         
-        _this.collectData(function(data){
-            _data = data;
-            switch (data.state){
-                case('unavaliable'):
-                    _this.showWindowUnavaliable();
-                    break;
-                case('notinstalled'):
-                    _this.showWindowInstallation(data);
-                    break;
-                case('avaliable'):
-                    _this.showWindowDebugger(data);
-                    break;
-                case('update'):
-                    _this.showWindowUpdate(data);
-                    break;
-            }
-        })
+        _this.collectData(_this.initTools);
     };
     
     this.collectData = function(func){
