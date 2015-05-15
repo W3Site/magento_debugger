@@ -86,12 +86,24 @@ var tools_profiler = function(){
             jQuery(dataItem).find('.profiler_realmem').text(value.realmem);
             jQuery(dataItem).find('.profiler_emalloc').text(value.emalloc);
             
+            var markOut = false;
+            if (
+                   value.name.substring(0,36) == 'mage::dispatch::controller::action::' &&
+                   value.name.indexOf("::", 37) == -1
+                ){
+                markOut = 'bold';
+            }
+            
+            var cssClasses = '';
             if (boolTrigger){
-                html = html + '<tr class="gray_row">' + dataItem.html() + '</tr>';
+                cssClasses = cssClasses + ' gray_row';
             }
-            else{
-                html = html + '<tr>' + dataItem.html() + '</tr>';
+            
+            if (markOut == 'bold'){
+                cssClasses = cssClasses + ' mark_out_bold';
             }
+            
+            html = html + '<tr class="' + cssClasses + '">' + dataItem.html() + '</tr>';
             
             if (boolTrigger){
                 boolTrigger = false;

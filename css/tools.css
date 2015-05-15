@@ -82,7 +82,7 @@ header {
       text-indent: -9999px;
       margin-top: 1px;
       cursor: pointer;
-      background: transparent url('../images/statusbarButtonGlyphs.png'); }
+      background: transparent url("../images/statusbarButtonGlyphs.png"); }
       .body .control-element input[type=button][name=debug_model_run] {
         background-position: -72px -52px; }
       .body .control-element input[type=button]#backend_config {
@@ -139,6 +139,8 @@ header {
               height: 25px; }
             .body .debug_window.debug_form .panel-body .tab table .gray_row {
               background-color: #eee; }
+            .body .debug_window.debug_form .panel-body .tab table .mark_out_bold {
+              font-weight: bold; }
           .body .debug_window.debug_form .panel-body .tab.tab-wellcome {
             height: 100%;
             width: 100%; }
@@ -260,7 +262,7 @@ header {
     text-indent: -9999px;
     margin-top: 1px;
     cursor: pointer;
-    background: transparent url('../images/statusbarButtonGlyphs.png'); }
+    background: transparent url("../images/statusbarButtonGlyphs.png"); }
     .body .button-graphic:focus {
       outline: none; }
     .body .button-graphic.reload {
@@ -274,3 +276,5 @@ header {
     width: 0px; }
   .body .template {
     display: none; }
+
+/*# sourceMappingURL=tools.css.map */

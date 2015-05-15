@@ -2,3 +2,4 @@
 /.settings
 /key.pem
 .directory
+.sass-cache
