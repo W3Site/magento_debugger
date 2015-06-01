@@ -45,68 +45,70 @@ var background = new function(){
             tab: null
         };
         
-        chrome.tabs.query({'active' : true}, function(tab){
-            tab = tab[0];
-            returnData.tab = tab;
-            
-            if (tab.url.substr(0, 7) != 'http://' && tab.url.substr(0, 8) != 'https://'){
-                returnData.state = 'unavaliable';
-                callback(returnData);
-                return;
-            }
-            
-            //var version = chrome.runtime.getManifest().version;
-            var version = _backendVersion;
-            
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', _this.getRootPath(tab.url) + '?magento_debug_info=yes&current_version=' + version);
-            xhr.send();
-            
-            xhr.onloadend = function() {
-                if (xhr.status != 200) {
-                    returnData.state = 'notinstalled';
-                    returnData.required = _backendVersion;
+        chrome.windows.getCurrent(function(windowData){
+            chrome.tabs.query({'active' : true, 'windowId' : windowData.id}, function(tab){
+                tab = tab[0];
+                returnData.tab = tab;
+                
+                if (tab.url.substr(0, 7) != 'http://' && tab.url.substr(0, 8) != 'https://'){
+                    returnData.state = 'unavaliable';
                     callback(returnData);
-                } else {
-                    try {
-                        returnData.backend = JSON.parse(xhr.responseText);
-                        returnData.required = _backendVersion;
-                    }
-                    catch (exception_var) {
+                    return;
+                }
+                
+                //var version = chrome.runtime.getManifest().version;
+                var version = _backendVersion;
+                
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', _this.getRootPath(tab.url) + '?magento_debug_info=yes&current_version=' + version);
+                xhr.send();
+                
+                xhr.onloadend = function() {
+                    if (xhr.status != 200) {
                         returnData.state = 'notinstalled';
                         returnData.required = _backendVersion;
                         callback(returnData);
-                    }
-                    finally {
-                        if (typeof returnData.backend == 'undefined'){
+                    } else {
+                        try {
+                            returnData.backend = JSON.parse(xhr.responseText);
+                            returnData.required = _backendVersion;
+                        }
+                        catch (exception_var) {
                             returnData.state = 'notinstalled';
+                            returnData.required = _backendVersion;
                             callback(returnData);
                         }
-                        else if (returnData.backend.version != version){
-                            returnData.state = 'update';
-                            callback(returnData);
-                        }
-                        else if (returnData.backend.version == version){
-                            chrome.cookies.getAll({url: tab.url}, function(cookies){
-                                returnData.cookies = new Object();
-                                
-                                for(var f=0; f<cookies.length; f++){
-                                    returnData.cookies[cookies[f].name] = cookies[f].value;
-                                }
-                                
-                                returnData.state = 'avaliable';
+                        finally {
+                            if (typeof returnData.backend == 'undefined'){
+                                returnData.state = 'notinstalled';
                                 callback(returnData);
-                            });
-                        }
-                    }
-                }
-            }
+                            }
+                            else if (returnData.backend.version != version){
+                                returnData.state = 'update';
+                                callback(returnData);
+                            }
+                            else if (returnData.backend.version == version){
+                                chrome.cookies.getAll({url: tab.url}, function(cookies){
+                                    returnData.cookies = new Object();
+                                    
+                                    for(var f=0; f<cookies.length; f++){
+                                        returnData.cookies[cookies[f].name] = cookies[f].value;
+                                    }
+                                    
+                                    returnData.state = 'avaliable';
+                                    callback(returnData);
+                                });
+                            };
+                        };
+                    };
+                };
+            });
         });
-    }
+    };
     
     this.setCookie = function(request, sender, callback){
         chrome.cookies.set({url: request.url, name: request.key, path: '/', value: request.value});
-    }
+    };
     
     this.ajax = function(request, sender, callback){
         var xhr = new XMLHttpRequest();
