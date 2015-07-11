@@ -3,3 +3,5 @@
 /key.pem
 .directory
 .sass-cache
+/nbproject/private/
+nbproject/
