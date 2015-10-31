@@ -156,7 +156,7 @@ header {
                 .body .debug_window.debug_form .panel-body .tab.tab-wellcome .wellcome-message-wrapper .wellcome-message img {
                   float: left; }
                 .body .debug_window.debug_form .panel-body .tab.tab-wellcome .wellcome-message-wrapper .wellcome-message .message {
-                  padding: 16px 0px 0px 142px; }
+                  padding: 8px 0px 0px 142px; }
           .body .debug_window.debug_form .panel-body .tab.tab-profiler {
             height: 100%;
             width: 100%; }
